@@ -256,7 +256,7 @@ UI.Separator()
 
 -- uti
 
-lblInfo= UI.Label("Tower - 3")
+lblInfo= UI.Label("Tower - 333")
 lblInfo:setColor("green")
 
 onKeyPress(function(keys)
