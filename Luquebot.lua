@@ -242,7 +242,7 @@ UI.Separator()
 
 -- uti
 
-lblInfo= UI.Label("Space - Up/Down")
+lblInfo= UI.Label("Misc - Up/Down")
 lblInfo:setColor("green")
 
 onKeyPress(function(keys)
@@ -256,7 +256,7 @@ UI.Separator()
 
 -- uti
 
-lblInfo= UI.Label("Tower - 333")
+lblInfo= UI.Label("Tower")
 lblInfo:setColor("green")
 
 onKeyPress(function(keys)
@@ -269,7 +269,7 @@ end)
 UI.Separator()
 
 
-macro(500, "Tower Auto", function()
+macro(500, "Tower", function()
     say("!nextwave")
     say("!nextfloor")
 end)
@@ -288,7 +288,7 @@ end)  -- 🔹 fecha macro Buff Void
 
 UI.Separator()
 
-local spell = "Void Spam"
+local spell = "Void Surge"
 
 macro(500, "Void Surge", function()
     local target = g_game.getAttackingCreature()
@@ -298,3 +298,20 @@ macro(500, "Void Surge", function()
 end)
 
 UI.Separator()
+
+
+-- classe_void.lua
+local version = "1.0"
+print("[Luquebot] Classe: Void carregada v" .. version)
+
+-- Combo Void Sequence
+macro(200, "Combo Void", function()
+  if g_game.isAttacking() then
+    say("Void Rupture")
+    say("Black Hole")
+    say("Void Intruder")
+    say("Abyssal Tear")
+    say("Nether Gaze")
+  end
+end)
+
