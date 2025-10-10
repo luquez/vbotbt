@@ -2,7 +2,8 @@
 -- Dois Node Collectors separados por categoria
 
 setDefaultTab("Misc")
-
+local mainTab = UI.getTab("Main")
+local MiscTab = UI.getTab("Misc")
 
 lblInfo= UI.Label("gathering")
 lblInfo:setColor("blue")
@@ -276,10 +277,10 @@ end)
 
 UI.Separator()
 
-
 lblInfo= UI.Label("Void")
 lblInfo:setColor("red")
 
+UI.Separator()
 
 -- Buff 1: Void
 macro(1000, "Buff Void", function()
@@ -305,7 +306,7 @@ UI.Separator()
 local version = "1.0"
 print("[Luquebot] Classe: Void carregada v" .. version)
 
--- Combo Void Sequence
+-- Combo Void Sequence (vai aparecer na aba Main)
 macro(200, "Combo Void", function()
   if g_game.isAttacking() then
     say("Void Rupture")
@@ -314,5 +315,6 @@ macro(200, "Combo Void", function()
     say("Abyssal Tear")
     say("Nether Gaze")
   end
-end)
+end, mainTab)
 
+UI.Separator()
