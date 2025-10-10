@@ -275,10 +275,12 @@ macro(500, "Tower", function()
 end)
 
 UI.Separator()
--------------------------
--- AUTO BUFFS FIXOS
--------------------------
- 
+
+
+lblInfo= UI.Label("Void")
+lblInfo:setColor("red")
+
+
 -- Buff 1: Void
 macro(1000, "Buff Void", function()
   if not isInPz() then
@@ -288,9 +290,9 @@ end)  -- 🔹 fecha macro Buff Void
 
 UI.Separator()
 
-local spell = "Void Surge"
+local spell = "Rifts of Beyound"
 
-macro(500, "Void Surge", function()
+macro(500, "Void - Spell Farm", function()
     local target = g_game.getAttackingCreature()
     if not target then
         say(spell)
@@ -298,7 +300,6 @@ macro(500, "Void Surge", function()
 end)
 
 UI.Separator()
-
 
 -- classe_void.lua
 local version = "1.0"
