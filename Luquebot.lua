@@ -1,11 +1,21 @@
 -- misc.luaprofessions
 -- Dois Node Collectors separados por categoria
 
-setDefaultTab("Misc")
+setDefaultTab("Luque")
+
+macro(200, "Auto Haste", function()
+  if isInPz() then return end          -- não usa em PZ
+  if hasHaste() then return end        -- já tem haste ativo
+  if getSpellCoolDown("utani hur") then return end  -- ainda em cooldown
+  if mana() < 40 then return end       -- sem mana suficiente
+
+  say("Haste")                     -- lança a spell
+end)
 
 lblInfo= UI.Label("gathering")
-lblInfo:setColor("blue")
+lblInfo:setColor("red")
 
+UI.Separator()
 -------------------------
 -- NODE COLLECTOR 1 (minério)
 -------------------------
@@ -179,8 +189,6 @@ end)
 
 UI.Separator()
 
-
-
 -------------------------
 -- NODE COLLECTOR 2 (PESCA)
 -------------------------
@@ -239,21 +247,26 @@ end)
 
 UI.Separator()
 
--- uti
+--- Utilidades
 
-lblInfo= UI.Label("Misc - Up/Down")
+lblInfo= UI.Label("Utilidades")
+lblInfo:setColor("red")
+
+UI.Separator()
+-- upda / down
+lblInfo= UI.Label("Para up / Down")
+lblInfo= UI.Label("Space")
 lblInfo:setColor("green")
-
+UI.Separator()
 onKeyPress(function(keys)
   if keys == "Space" then
     say('levitate "up') 
     say('levitate "down') 
   end
 end)
-
 UI.Separator()
 
--- uti
+-- Tower
 
 lblInfo= UI.Label("Tower")
 lblInfo:setColor("green")
@@ -264,54 +277,52 @@ onKeyPress(function(keys)
     say('!nextfloor') 
   end
 end)
-
 UI.Separator()
-
-
-macro(500, "Tower", function()
+macro(500, "Auto Tower", function()
     say("!nextwave")
     say("!nextfloor")
 end)
-
 UI.Separator()
-
-lblInfo= UI.Label("Void")
-lblInfo:setColor("red")
-
-UI.Separator()
-
--- Buff 1: Void
-macro(1000, "Buff Void", function()
-  if not isInPz() then
-    say("Voidwalk") -- magia do buff
-  end
-end)  -- 🔹 fecha macro Buff Void
-
-UI.Separator()
-
-local spell = "Rifts of Beyound"
-
-macro(500, "Void - Spell Farm", function()
-    local target = g_game.getAttackingCreature()
-    if not target then
-        say(spell)
-    end
+macro(600000, "Elite Scroll", function()
+  use(32624)
 end)
 
 UI.Separator()
 
--- classe_void.lua
-local version = "1.0"
-print("[Luquebot] Classe: Void carregada v" .. version)
+---
 
--- Combo Void Sequence
-macro(200, "Combo Void", function()
-  if g_game.isAttacking() then
-    say("Void Rupture")
-    say("Black Hole")
-    say("Void Intruder")
-    say("Abyssal Tear")
-    say("Nether Gaze")
-  end
+local effectsIds = {193, 2}
+local walkingToEffect = false
+
+local ir = macro(100, "Pegar Orb", function() end)
+
+onAddThing(function(tile, thing)
+    if ir.isOff() then return end
+    if not thing:isEffect() then return end
+
+    local id = thing:getId()
+    if not table.find(effectsIds, id) then return end
+    if walkingToEffect then return end
+
+    walkingToEffect = true
+    CaveBot.setOn(false)
+    delay(100)
+
+    local pos = thing:getPosition()
+    autoWalk(pos, { precision = 0 })
+
+    -- Reforça o autoWalk após 600ms se ainda não estiver em cima
+    schedule(600, function()
+        if posx() ~= pos.x or posy() ~= pos.y or posz() ~= pos.z then
+            autoWalk(pos, { precision = 0 })
+        end
+    end)
+
+    schedule(3000, function()
+        CaveBot.setOn(true)
+        walkingToEffect = false
+    end)
 end)
+
+UI.Separator()
 
