@@ -32,7 +32,7 @@ end)  -- 🔹 fecha macro Buff Void
 UI.Separator()
 
 -- Buff 1: Void
-macro(15000, "Buff Void", function()
+macro(8000, "Buff Void", function()
   if not isInPz() then
     say("Void Steroids") -- magia do buff
   end
