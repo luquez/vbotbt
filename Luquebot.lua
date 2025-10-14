@@ -324,5 +324,8 @@ onAddThing(function(tile, thing)
     end)
 end)
 
+UI.Button("Zoom In map [ctrl + =]", function() zoomIn() end)
+UI.Button("Zoom Out map [ctrl + -]", function() zoomOut() end)
+
 UI.Separator()
 
