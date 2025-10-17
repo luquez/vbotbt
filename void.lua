@@ -1,4 +1,4 @@
-setDefaultTab("Void")
+setDefaultTab("Void2")
 
 lblInfo= UI.Label("Void")
 lblInfo:setColor("red")
@@ -16,7 +16,6 @@ macro(200, "Combo Void", function()
     say("Black Hole")
     say("Void Intruder")
     say("Abyssal Tear")
-    say("Nether Gaze")
   end
 end)
 
@@ -40,7 +39,7 @@ end)  -- 🔹 fecha macro Buff Void
 
 UI.Separator()
 
-local spell = "Rifts of beyond"
+local spell = "Nether Gaze"
 
 macro(1000, "Void - Spell Farm", function()
     local target = g_game.getAttackingCreature()
@@ -73,9 +72,8 @@ end)
 UI.Separator()
 
 lblInfo = UI.Label("")
-lblInfo = UI.Label("HEALLLL")
+lblInfo = UI.Label("Heal")
 lblInfo:setColor("blue")
-lblInfo = UI.Label("")
 
 UI.Separator()
 
@@ -92,7 +90,6 @@ UI.Separator()
 lblInfo = UI.Label("")
 lblInfo = UI.Label("Potion")
 lblInfo:setColor("blue")
-lblInfo = UI.Label("")
 addSeparator()
 addSeparator()
 Panels.ManaItem()
