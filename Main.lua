@@ -104,8 +104,8 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
     -- =============================================
     local modules = {
         { name = "Core", url = URL_CORE, color = "green" },
-        { name = "Void", url = URL_VOID, color = "purple" },
-        { name = "Guns", url = URL_GUNS, color = "orange" },
+        { name = "Void", url = URL_VOID, color = "green" },
+        { name = "Guns", url = URL_GUNS, color = "green" },
     }
 
     for _, mod in ipairs(modules) do
@@ -118,8 +118,6 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
         end)
         button:setColor(mod.color)
     end
-
-    UI.Label("Bot by ......"):setColor("white")
 end)
 
 -- =============================================
