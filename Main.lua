@@ -1,8 +1,8 @@
 -- =============================================
--- 🌐 LuqueBot Main - Modular + Version Check (Safe / URLs explícitas)
+-- 🌐 LuqueBot Main - Modular + Version Check (Stable)
 -- =============================================
 
-local localVersion = "2.15"
+local localVersion = "2.16"
 local remoteVersion
 
 print("[LuqueBot] 🔍 Verificando versão... (local " .. localVersion .. ")")
@@ -18,7 +18,7 @@ local URL_VOID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
 
 -- =============================================
--- Função para baixar e executar scripts remotos
+-- 🧠 Função para baixar e executar módulos remotos
 -- =============================================
 local function executeRemote(name, url, label)
     print("[LuqueBot] 🔁 Baixando " .. name .. "...")
@@ -28,25 +28,25 @@ local function executeRemote(name, url, label)
             return
         end
         if not code or code == "" then
-            print("[LuqueBot]  " .. name .. " vazio ou inválido.")
+            print("[LuqueBot] ⚠️ " .. name .. " vazio ou inválido.")
             return
         end
 
         local success, result = pcall(loadstring(code))
         if success then
-            print("[LuqueBot]  " .. name .. " executado com sucesso!")
+            print("[LuqueBot] 🚀 " .. name .. " executado com sucesso!")
             if label then
-                label:setText(" " .. name .. " carregado!")
+                label:setText("✅ " .. name .. " carregado!")
                 label:setColor("green")
             end
         else
-            print("[LuqueBot]  Erro ao executar " .. name .. ": " .. tostring(result))
+            print("[LuqueBot] ❌ Erro ao executar " .. name .. ": " .. tostring(result))
         end
     end)
 end
 
 -- =============================================
--- Checagem de versão
+-- 🧩 Checagem de versão remota (com controle)
 -- =============================================
 HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
     if err then
@@ -56,65 +56,70 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
 
     remoteVersion = data:match("%S+")
     if not remoteVersion then
-        print("[LuqueBot]  Não foi possível ler a versão remota.")
+        print("[LuqueBot] ⚠️ Não foi possível ler a versão remota.")
         return
     end
 
     if remoteVersion ~= localVersion then
         print("[LuqueBot] 🔄 Nova versão detectada! (remota " .. remoteVersion .. ")")
+
         HTTP.get(URL_MAIN .. "?nocache=" .. os.time(), function(code, err2)
             if not err2 and code and code ~= "" then
                 print("[LuqueBot] 🚀 Atualizando Main.lua remoto...")
                 local ok, res = pcall(loadstring(code))
                 if ok then
-                    print("[LuqueBot]  Main.lua atualizado e executado!")
-                    return
+                    print("[LuqueBot] ✅ Main.lua atualizado e executado!")
                 else
-                    print("[LuqueBot]  Erro ao executar Main.lua atualizado: " .. tostring(res))
+                    print("[LuqueBot] ❌ Erro ao executar Main.lua atualizado: " .. tostring(res))
                 end
             else
-                print("[LuqueBot]  Falha ao baixar Main.lua atualizado: " .. tostring(err2))
+                print("[LuqueBot] ⚠️ Falha ao baixar Main.lua atualizado: " .. tostring(err2))
             end
         end)
-        return
+
+        return  -- 🧠 Sai aqui pra evitar loop
     end
 
-    print("[LuqueBot]  Main.lua atualizado (v" .. localVersion .. ")")
+    print("[LuqueBot] ✅ Main.lua atualizado (v" .. localVersion .. ")")
 
     -- =============================================
-    -- Interface e botões dos módulos
+    -- 🧠 Interface e botões dos módulos
     -- =============================================
-schedule(1000, function()
-    setDefaultTab("Main")
+    schedule(1000, function()
+        setDefaultTab("Main")
 
-    local label = UI.Label("LuqueBot v" .. (remoteVersion or localVersion))
-    label:setColor("orange")
+        local label = UI.Label("LuqueBot v" .. (remoteVersion or localVersion))
+        label:setColor("orange")
 
-    macro(1000, function()
-        if remoteVersion and remoteVersion ~= localVersion then
-            label:setText("LuqueBot v" .. remoteVersion)
-            label:setColor("green")
-        end
+        macro(1000, function()
+            if remoteVersion and remoteVersion ~= localVersion then
+                label:setText("LuqueBot v" .. remoteVersion)
+                label:setColor("green")
+            end
+        end)
     end)
-end)
 
-
+    -- =============================================
+    -- 🧩 Módulos disponíveis
+    -- =============================================
     local modules = {
-        { name = "Luque Custom", url = URL_CORE, color = "green" },
-        { name = "Void", url = URL_VOID, color = "blue" },
-        { name = "Guns", url = URL_GUNS, color = "white" },   
-
+        { name = "Core", url = URL_CORE, color = "green" },
+        { name = "Void", url = URL_VOID, color = "purple" },
+        { name = "Guns", url = URL_GUNS, color = "orange" },
     }
 
     for _, mod in ipairs(modules) do
-        local label = UI.Label("") -- espaço para status
+        UI.Separator({height = 3}) -- espaçamento compacto
+        local label = UI.Label("")
         local button = UI.Button("" .. mod.name, function()
-            label:setText("Carregando " .. mod.name .. "...")
+            label:setText("⏳ Carregando " .. mod.name .. "...")
             label:setColor("yellow")
             executeRemote(mod.name .. ".lua", mod.url, label)
         end)
         button:setColor(mod.color)
     end
 
-UI.Label("Bot by Luque Autoupdate"):setColor("white")
+    UI.Label("Bot by ......"):setColor("white")
 end)
+
+-- =============================================
