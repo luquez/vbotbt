@@ -77,7 +77,7 @@ UI.Separator()
 -- NODE COLLECTOR 2 (plantas)
 -------------------------
 
-local itemIds1 = {3889,3894,3913,3754,3641,12419,36230,36230,43519} -- lista de IDs aceitos
+local itemIds1 = {3889,3894,3913,3754,3641,12419,36230,36230,43519,37975} -- lista de IDs aceitos
 local radius1 = 6
 local itemVisible1 = false
 local forceTime1 = 0
