@@ -108,8 +108,7 @@ end)
     local modules = {
         { name = "Core", url = URL_CORE, color = "green" },
         { name = "Void", url = URL_VOID, color = "purple" },
-        { name = "Guns", url = URL_GUNS, color = "Orange" },
-            
+        { name = "Guns", url = URL_GUNS, color = "Orange" },   
 
     }
 
@@ -123,6 +122,13 @@ end)
         button:setColor(mod.color)
     end
 
-    UI.Label("Bot by Luque Autoupdate"):setColor("white")
+UI.Label("Bot by Luque Autoupdate"):setColor("white")
 end)
 -- =============================================
+-- 🔁 Reseta flag quando o bot for desligado
+-- =============================================
+onBotEvent("onStop", function()
+    _G.__LUQUE_MAIN_LOADED = nil
+    print("[LuqueBot] 🧹 Flag de carregamento resetada. Pronto para próximo start.")
+end)
+
