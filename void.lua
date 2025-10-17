@@ -88,7 +88,7 @@ end)
 UI.Separator()
 
 lblInfo = UI.Label("")
-lblInfo = UI.Label("Potion")
+lblInfo = UI.Label("Potiiion")
 lblInfo:setColor("blue")
 addSeparator()
 addSeparator()
