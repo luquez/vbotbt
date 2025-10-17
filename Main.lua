@@ -21,6 +21,7 @@ local URL_MAIN = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
 local URL_VOID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/void.lua"
+local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
 
 -- =============================================
 -- Função para baixar e executar scripts remotos
@@ -33,19 +34,19 @@ local function executeRemote(name, url, label)
             return
         end
         if not code or code == "" then
-            print("[LuqueBot] ⚠️ " .. name .. " vazio ou inválido.")
+            print("[LuqueBot]  " .. name .. " vazio ou inválido.")
             return
         end
 
         local success, result = pcall(loadstring(code))
         if success then
-            print("[LuqueBot] 🚀 " .. name .. " executado com sucesso!")
+            print("[LuqueBot]  " .. name .. " executado com sucesso!")
             if label then
-                label:setText("✅ " .. name .. " carregado!")
+                label:setText(" " .. name .. " carregado!")
                 label:setColor("green")
             end
         else
-            print("[LuqueBot] ❌ Erro ao executar " .. name .. ": " .. tostring(result))
+            print("[LuqueBot]  Erro ao executar " .. name .. ": " .. tostring(result))
         end
     end)
 end
@@ -61,7 +62,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
 
     remoteVersion = data:match("%S+")
     if not remoteVersion then
-        print("[LuqueBot] ⚠️ Não foi possível ler a versão remota.")
+        print("[LuqueBot]  Não foi possível ler a versão remota.")
         return
     end
 
@@ -72,19 +73,19 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
                 print("[LuqueBot] 🚀 Atualizando Main.lua remoto...")
                 local ok, res = pcall(loadstring(code))
                 if ok then
-                    print("[LuqueBot] ✅ Main.lua atualizado e executado!")
+                    print("[LuqueBot]  Main.lua atualizado e executado!")
                     return
                 else
-                    print("[LuqueBot] ❌ Erro ao executar Main.lua atualizado: " .. tostring(res))
+                    print("[LuqueBot]  Erro ao executar Main.lua atualizado: " .. tostring(res))
                 end
             else
-                print("[LuqueBot] ⚠️ Falha ao baixar Main.lua atualizado: " .. tostring(err2))
+                print("[LuqueBot]  Falha ao baixar Main.lua atualizado: " .. tostring(err2))
             end
         end)
         return
     end
 
-    print("[LuqueBot] ✅ Main.lua atualizado (v" .. localVersion .. ")")
+    print("[LuqueBot]  Main.lua atualizado (v" .. localVersion .. ")")
 
     -- =============================================
     -- Interface e botões dos módulos
@@ -107,6 +108,8 @@ end)
     local modules = {
         { name = "Core", url = URL_CORE, color = "green" },
         { name = "Void", url = URL_VOID, color = "purple" },
+        { name = "Guns", url = URL_VOID, color = "Orange" },
+            
 
     }
 
