@@ -108,7 +108,7 @@ end)
     local modules = {
         { name = "Core", url = URL_CORE, color = "green" },
         { name = "Void", url = URL_VOID, color = "purple" },
-        { name = "Guns", url = URL_VOID, color = "Orange" },
+        { name = "Guns", url = URL_GUNS, color = "Orange" },
             
 
     }
@@ -123,6 +123,6 @@ end)
         button:setColor(mod.color)
     end
 
-    UI.Label("Bot by Luque – Autoupdate"):setColor("white")
+    UI.Label("Bot by Luque Autoupdate"):setColor("white")
 end)
 -- =============================================
