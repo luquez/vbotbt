@@ -112,8 +112,8 @@ end)
 
     for _, mod in ipairs(modules) do
         local label = UI.Label("") -- espaço para status
-        local button = UI.Button("⚙️ " .. mod.name, function()
-            label:setText("⏳ Carregando " .. mod.name .. "...")
+        local button = UI.Button("" .. mod.name, function()
+            label:setText("Carregando " .. mod.name .. "...")
             label:setColor("yellow")
             executeRemote(mod.name .. ".lua", mod.url, label)
         end)
