@@ -89,6 +89,8 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
     -- =============================================
     -- Interface e botões dos módulos
     -- =============================================
+    macro(1000, function()
+                
     setDefaultTab("Main")
 
     UI.Label("LuqueBot v" .. localVersion):setColor("aqua")
