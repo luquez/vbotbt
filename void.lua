@@ -73,7 +73,7 @@ end)
 UI.Separator()
 
 lblInfo = UI.Label("")
-lblInfo = UI.Label("Heal")
+lblInfo = UI.Label("HEALLLL")
 lblInfo:setColor("blue")
 lblInfo = UI.Label("")
 
