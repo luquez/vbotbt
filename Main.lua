@@ -2,11 +2,11 @@
 -- 🌐 LuqueBot Main - Modular + Version Check (Safe / URLs explícitas)
 -- =============================================
 
-if _G.__LUQUE_MAIN_LOADED then
-    print("[LuqueBot] ⚙️ Main.lua já carregado, ignorando nova execução.")
-    return
-end
-_G.__LUQUE_MAIN_LOADED = true
+--if _G.__LUQUE_MAIN_LOADED then
+--    print("[LuqueBot] ⚙️ Main.lua já carregado, ignorando nova execução.")
+--    return
+--end
+--_G.__LUQUE_MAIN_LOADED = true
 
 local localVersion = "2.14"
 local remoteVersion
