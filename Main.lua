@@ -8,7 +8,7 @@ if _G.__LUQUE_MAIN_LOADED then
 end
 _G.__LUQUE_MAIN_LOADED = true
 
-local localVersion = "2.13"
+local localVersion = "2.14"
 local remoteVersion
 
 print("[LuqueBot] 🔍 Verificando versão... (local " .. localVersion .. ")")
