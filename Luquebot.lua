@@ -3,15 +3,6 @@
 
 setDefaultTab("Luque")
 
-macro(200, "Auto Haste", function()
-  if isInPz() then return end          -- não usa em PZ
-  if hasHaste() then return end        -- já tem haste ativo
-  if getSpellCoolDown("utani hur") then return end  -- ainda em cooldown
-  if mana() < 40 then return end       -- sem mana suficiente
-
-  say("Haste")                     -- lança a spell
-end)
-
 lblInfo= UI.Label("gathering")
 lblInfo:setColor("red")
 
