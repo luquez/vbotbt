@@ -89,11 +89,20 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
     -- =============================================
     -- Interface e botões dos módulos
     -- =============================================
-    macro(1000, function()
-                
+schedule(1000, function()
     setDefaultTab("Main")
 
-    UI.Label("LuqueBot v" .. localVersion):setColor("aqua")
+    local label = UI.Label("LuqueBot v" .. (remoteVersion or localVersion))
+    label:setColor("orange")
+
+    macro(1000, function()
+        if remoteVersion and remoteVersion ~= localVersion then
+            label:setText("LuqueBot v" .. remoteVersion)
+            label:setColor("green")
+        end
+    end)
+end)
+
 
     local modules = {
         { name = "Core", url = URL_CORE, color = "green" },
