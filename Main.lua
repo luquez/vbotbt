@@ -2,13 +2,7 @@
 -- 🌐 LuqueBot Main - Modular + Version Check (Safe / URLs explícitas)
 -- =============================================
 
---if _G.__LUQUE_MAIN_LOADED then
---    print("[LuqueBot] ⚙️ Main.lua já carregado, ignorando nova execução.")
---    return
---end
---_G.__LUQUE_MAIN_LOADED = true
-
-local localVersion = "2.14"
+local localVersion = "2.15"
 local remoteVersion
 
 print("[LuqueBot] 🔍 Verificando versão... (local " .. localVersion .. ")")
@@ -106,8 +100,8 @@ end)
 
 
     local modules = {
-        { name = "Core", url = URL_CORE, color = "green" },
-        { name = "Void", url = URL_VOID, color = "purple" },
+        { name = "Luque Custom", url = URL_CORE, color = "green" },
+        { name = "Void", url = URL_VOID, color = "blue" },
         { name = "Guns", url = URL_GUNS, color = "Orange" },   
 
     }
