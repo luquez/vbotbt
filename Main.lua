@@ -103,7 +103,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
     -- 🧩 Módulos disponíveis
     -- =============================================
     local modules = {
-        { name = "Core", url = URL_CORE, color = "green" },
+        { name = "Core-Utilidades", url = URL_CORE, color = "green" },
         { name = "Void", url = URL_VOID, color = "green" },
         { name = "Guns", url = URL_GUNS, color = "green" },
     }
