@@ -109,7 +109,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
     }
 
     for _, mod in ipairs(modules) do
-        UI.Separator({height = 3}) -- espaçamento compacto
+        UI.Separator() -- espaçamento compacto
         local label = UI.Label("")
         local button = UI.Button("" .. mod.name, function()
             label:setText("⏳ Carregando " .. mod.name .. "...")
