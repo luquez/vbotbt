@@ -102,7 +102,7 @@ end)
     local modules = {
         { name = "Luque Custom", url = URL_CORE, color = "green" },
         { name = "Void", url = URL_VOID, color = "blue" },
-        { name = "Guns", url = URL_GUNS, color = "Orange" },   
+        { name = "Guns", url = URL_GUNS, color = "white" },   
 
     }
 
