@@ -17,7 +17,7 @@ print("[LuqueBot] 🔍 Verificando versão... (local " .. localVersion .. ")")
 -- 🔎 URLs fixas (web-based)
 -- =============================================
 local URL_VERSION = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/version.txt"
-local URL_MAIN = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/main.lua"
+local URL_MAIN = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Main.lua"
 
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
 local URL_VOID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/void.lua"
