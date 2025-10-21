@@ -1,3 +1,9 @@
+setDefaultTab("Guns")
+
+lblInfo= UI.Label("Guns")
+lblInfo:setColor("red")
+
+UI.Separator()
 
 -- classe_guns.lua
 local version = "1.0"
