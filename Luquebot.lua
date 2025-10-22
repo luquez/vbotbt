@@ -278,7 +278,7 @@ UI.Separator()
 local itemId = 41656
 local radius = 7 -- distância do personagem (1 sqm em volta)
 
-macro(500, "PEGA CHEST FULL", function()
+macro(500, "Auto Chest - Rift", function()
   for x = -radius, radius do
     for y = -radius, radius do
       local tile = g_map.getTile({x = posx() + x, y = posy() + y, z = posz()})
