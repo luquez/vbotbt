@@ -71,13 +71,18 @@ local potLow = 7643       -- ultimate mana
 local potMid = 24937      -- dracula
 
 macro(200, "Dual POT", function()
-  local health = healthpercent()
-  if health <= 70 then
-    usewith(potLow, player)
-  elseif health <= 95 then
-    usewith(potMid, player)
+  if isInPz() then return end            -- evita uso em PZ
+
+  local hp = hppercent()
+  local me = g_game.getLocalPlayer()
+
+  if hp <= 70 then
+    usewith(potLow, me)                 -- usa potion de emergência
+  elseif hp <= 95 then
+    usewith(potMid, me)                 -- usa potion comum
   end
 end)
+
 
 macro(10000, "FOOD", function()
   if player:getRegenerationTime() > 400 then return end
