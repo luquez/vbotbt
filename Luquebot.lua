@@ -274,8 +274,24 @@ macro(500, "Auto Tower", function()
     say("!nextfloor")
 end)
 UI.Separator()
-macro(600000, "Elite Scroll", function()
-  use(32624)
+
+local itemId = 41656
+local radius = 7 -- distância do personagem (1 sqm em volta)
+
+macro(500, "PEGA CHEST FULL", function()
+  for x = -radius, radius do
+    for y = -radius, radius do
+      local tile = g_map.getTile({x = posx() + x, y = posy() + y, z = posz()})
+      if tile then
+        for _, thing in ipairs(tile:getThings()) do
+          if thing:getId() == itemId then
+            use(thing)
+            return
+          end
+        end
+      end
+    end
+  end
 end)
 
 UI.Separator()
