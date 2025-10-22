@@ -64,7 +64,6 @@ lblInfo = UI.Label("")
 lblInfo = UI.Label("Potion")
 lblInfo:setColor("blue")
 addSeparator()
-addSeparator()
 Panels.HealthItem()
 UI.Separator()
 
