@@ -68,14 +68,14 @@ addSeparator()
 Panels.HealthItem()
 UI.Separator()
 
-local potLow = 23373       -- ultimate mana
+local potLow = 7643       -- ultimate mana
 local potMid = 24937      -- dracula
 
 macro(200, "Dual POT", function()
-  local mana = manapercent()
-  if mana <= 70 then
+  local health = healthpercent()
+  if health <= 70 then
     usewith(potLow, player)
-  elseif mana <= 95 then
+  elseif health <= 95 then
     usewith(potMid, player)
   end
 end)
@@ -90,4 +90,13 @@ macro(10000, "FOOD", function()
       end
     end
   end
+end)
+
+macro(200, "Auto Haste", function()
+  if isInPz() then return end          -- não usa em PZ
+  if hasHaste() then return end        -- já tem haste ativo
+  if getSpellCoolDown("utani hur") then return end  -- ainda em cooldown
+  if mana() < 40 then return end       -- sem mana suficiente
+
+  say("Haste")                     -- lança a spell
 end)
