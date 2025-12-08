@@ -90,7 +90,7 @@ end)
 UI.Separator()
 
 -- MANA HEAL (150)
-local healingSpell2 = "150 - Mana Heal"
+local healingSpell2 = "Magic Infusion"
 local manaPercent2 = 97
 
 macro(200, "Magic Infusion", function()
