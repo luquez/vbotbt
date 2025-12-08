@@ -336,7 +336,7 @@ UI.Separator()
 local itemOrbIds = {548}
 local walkingToItemOrb = false
 
-local goToItemOrb = macro(100, "Go to Item ORB", function() end)
+local goToItemOrb = macro(100, "Orb de Natal", function() end)
 
 onAddThing(function(tile, thing)
     if goToItemOrb.isOff() then return end
