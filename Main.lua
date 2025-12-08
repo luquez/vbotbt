@@ -107,7 +107,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
         { name = "Core-Utilidades", url = URL_CORE, color = "green" },
         { name = "Void", url = URL_VOID, color = "green" },
         { name = "Guns", url = URL_GUNS, color = "green" },
-        { name = "Guns", url = URL_WAR, color = "green" },
+        { name = "War", url = URL_WAR, color = "green" },
     }
 
     for _, mod in ipairs(modules) do
