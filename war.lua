@@ -37,9 +37,20 @@ UI.Separator()
 UI.Separator()
 
 -- Buff 1: War
-macro(8000, "Buff War", function()
+macro(16000, "Buff War", function()
   if not isInPz() then
     say("Defender Spirit") -- magia do buff
+  end
+end)  -- 🔹 
+
+UI.Separator()
+
+UI.Separator()
+
+-- Buff 2: War
+macro(1000, "Exeta", function()
+  if not isInPz() then
+    say("Challenge") -- magia do buff
   end
 end)  -- 🔹 
 
@@ -62,6 +73,22 @@ macro(200, "Intense Wound Cleansing", function()
 end)
 
 UI.Separator()
+
+
+UI.Separator()
+
+
+local healingSpell = "Limb Restoration"
+local healthPercent = 97
+macro(200, "Limb Restoration", function()
+  if isInPz() then return end   
+  if hppercent() <= healthPercent then
+    say(healingSpell)
+  end
+end)
+
+UI.Separator()
+
 
 lblInfo = UI.Label("")
 lblInfo = UI.Label("Potion")
