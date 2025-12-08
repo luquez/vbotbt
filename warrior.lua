@@ -9,14 +9,17 @@ UI.Separator()
 local version = "1.0"
 print("[Luquebot] Classe: War carregada v" .. version)
 
--- Combo Void Sequence
-macro(200, "Combo Guns", function()
+-- Combo War Sequence
+macro(200, "Combo Kina", function()
   if g_game.isAttacking() then
-    say("Gun Kata")
-    say("Bullseye")
-    say("Heavy Artillery")
-    say("Explosive Rounds")
-    say("fragmented bullets")
+    say("Cleave")
+    say("Dancing Axes")
+    say("Northern Rage")
+    say("Hundred Blades")
+    say("Cyclone")
+    say("Groundshaker")
+    say("Fast Sweep")
+    say("Whirlwind Throw")
   end
 end)
 
@@ -33,10 +36,10 @@ UI.Separator()
 
 UI.Separator()
 
--- Buff 1: Guns
-macro(8000, "Buff Guns", function()
+-- Buff 1: War
+macro(8000, "Buff War", function()
   if not isInPz() then
-    say("Bouncing Bullets") -- magia do buff
+    say("Defender Spirit") -- magia do buff
   end
 end)  -- 🔹 
 
@@ -49,9 +52,9 @@ lblInfo:setColor("blue")
 UI.Separator()
 
 
-local healingSpell = "Rangers Restoration"
+local healingSpell = "Intense Wound Cleansing"
 local healthPercent = 97
-macro(200, "Rangers Restoration", function()
+macro(200, "Intense Wound Cleansing", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
