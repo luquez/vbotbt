@@ -16,7 +16,7 @@ local URL_MAIN = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
 local URL_VOID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/void.lua"
 local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
-local URL_WAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/War.lua"
+local URL_WAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/war.lua"
 
 -- =============================================
 -- 🧠 Função para baixar e executar módulos remotos
