@@ -68,6 +68,18 @@ macro(1000, "Auto Summon", function()
   end
 end)
 
+UI.Separator()
+
+local spell = "Mana Waste"
+local manaMin = 20       -- mínimo de mana% para castar
+local interval = 3000    -- 3 segundos
+
+macro(interval, "Mana Training", function()
+    if isInPz() then return end           -- bloqueia dentro de PZ
+    if manapercent() < manaMin then return end
+    say(spell)
+end)
+
 
 UI.Separator()
 
@@ -78,24 +90,21 @@ lblInfo:setColor("blue")
 UI.Separator()
 
 -- MAGIC RESTORATION (1200)
-local healingSpell1 = "1200 - Magic Restoration"
-local manaPercent1 = 97
-
-macro(200, "Magic Restoration", function()
-  if manapercent() <= manaPercent1 then
-    say(healingSpell1)
+macro(1000, "Magic Restoration", function()
+  if isInPz() then return end
+  if manapercent() <= 97 then
+    say("1200 - Magic Restoration")
   end
 end)
 
 UI.Separator()
 
 -- MANA HEAL (150)
-local healingSpell2 = "Magic Infusion"
-local manaPercent2 = 97
 
-macro(200, "Magic Infusion", function()
-  if manapercent() <= manaPercent2 then
-    say(healingSpell2)
+macro(1000, "Magic Infusion", function()
+  if isInPz() then return end
+  if manapercent() <= 97 then
+    say("Magic Infusion")
   end
 end)
 
