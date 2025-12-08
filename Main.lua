@@ -2,7 +2,7 @@
 -- 🌐 LuqueBot Main - Modular + Version Check (Stable)
 -- =============================================
 
-local localVersion = "1.0"
+local localVersion = "1.1"
 local remoteVersion
 
 print("[LuqueBot] 🔍 Verificando versão... (local " .. localVersion .. ")")
