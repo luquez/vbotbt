@@ -333,3 +333,41 @@ end)
 
 UI.Separator()
 
+local itemOrbIds = {548}
+local walkingToItemOrb = false
+
+local goToItemOrb = macro(100, "Go to Item ORB", function() end)
+
+onAddThing(function(tile, thing)
+    if goToItemOrb.isOff() then return end
+    if not thing:isItem() then return end
+
+    local id = thing:getId()
+    if not table.find(itemOrbIds, id) then return end
+    if walkingToItemOrb then return end
+
+    walkingToItemOrb = true
+    CaveBot.setOn(false)
+    delay(100)
+
+    local pos = thing:getPosition()
+    autoWalk(pos, { precision = 0 })
+
+    -- reforça walk caso o bot não chegue na primeira tentativa
+    schedule(600, function()
+        if posx() ~= pos.x or posy() ~= pos.y or posz() ~= pos.z then
+            autoWalk(pos, { precision = 0 })
+        end
+    end)
+
+    -- libera movimento e cavebot depois
+    schedule(3000, function()
+        CaveBot.setOn(true)
+        walkingToItemOrb = false
+    end)
+end)
+
+
+UI.Separator()
+
+
