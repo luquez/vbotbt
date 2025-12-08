@@ -1,6 +1,6 @@
 setDefaultTab("War")
 
-lblInfo= UI.Label("War")
+lblInfo= UI.Label("War - Fael Noob")
 lblInfo:setColor("red")
 
 UI.Separator()
