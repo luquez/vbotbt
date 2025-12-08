@@ -77,21 +77,25 @@ lblInfo:setColor("blue")
 
 UI.Separator()
 
-local healingSpell = '1200 - Magic Restoration'
-local manaPercent = 97
-macro(200, "Magic Restoration",  function()
-  if (manapercent() <= manaPercent) then
-    say(healingSpell) 
+-- MAGIC RESTORATION (1200)
+local healingSpell1 = "1200 - Magic Restoration"
+local manaPercent1 = 97
+
+macro(200, "Magic Restoration", function()
+  if manapercent() <= manaPercent1 then
+    say(healingSpell1)
   end
 end)
 
 UI.Separator()
 
-local healingSpell = '150 - Mana Heal
-local manaPercent = 97
-macro(200, "Magic Infusion",  function()
-  if (manapercent() <= manaPercent) then
-    say(healingSpell) 
+-- MANA HEAL (150)
+local healingSpell2 = "150 - Mana Heal"
+local manaPercent2 = 97
+
+macro(200, "Magic Infusion", function()
+  if manapercent() <= manaPercent2 then
+    say(healingSpell2)
   end
 end)
 
