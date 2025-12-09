@@ -93,7 +93,7 @@ UI.Separator()
 macro(1000, "Magic Restoration", function()
   if isInPz() then return end
   if manapercent() <= 97 then
-    say("1200 - Magic Restoration")
+    say("Magic Restoration")
   end
 end)
 
