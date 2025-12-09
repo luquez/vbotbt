@@ -1,4 +1,4 @@
-setDefaultTab("Void2")
+setDefaultTab("Void")
 
 lblInfo= UI.Label("Void")
 lblInfo:setColor("red")
@@ -75,7 +75,7 @@ local manaMin = 20       -- mínimo de mana% para castar
 local interval = 3000    -- 3 segundos
 
 macro(interval, "Mana Training", function()
-    if isInPz() then return end           -- bloqueia dentro de PZ
+--    if isInPz() then return end           -- bloqueia dentro de PZ
     if manapercent() < manaMin then return end
     say(spell)
 end)
