@@ -16,6 +16,9 @@ macro(200, "Combo Void", function()
     say("Black Hole")
     say("Void Intruder")
     say("Abyssal Tear")
+    say("Nether Gaze")
+    say("Rifts of Beyond")
+    say("Void Surge")  
   end
 end)
 
