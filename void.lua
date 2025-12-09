@@ -10,7 +10,7 @@ local version = "1.0"
 print("[Luquebot] Classe: Void carregada v" .. version)
 
 -- Combo Void Sequence
-macro(200, "Combo Void", function()
+macro(200, "Combo Void - Full", function()
   if g_game.isAttacking() then
     say("Void Rupture")
     say("Black Hole")
