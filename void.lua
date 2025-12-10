@@ -162,3 +162,18 @@ macro(200, "Auto Haste", function()
 
   say("Haste")                     -- lança a spell
 end)
+
+
+UI.Separator()
+-- upda / down
+lblInfo= UI.Label("Para up / Down")
+lblInfo= UI.Label("Space")
+lblInfo:setColor("green")
+UI.Separator()
+onKeyPress(function(keys)
+  if keys == "Space" then
+    say('levitate "up') 
+    say('levitate "down') 
+  end
+end)
+UI.Separator()
