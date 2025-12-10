@@ -97,6 +97,15 @@ addSeparator()
 Panels.HealthItem()
 UI.Separator()
 
+local potId = 7643  -- ID da potion
+local interval = 500  -- 0.5s
+
+macro(interval, "Pot Craft SPAM", function()
+    usewith(potId, player)
+end)
+
+UI.Separator()
+
 local potLow = 7643       -- ultimate mana
 local potMid = 24937      -- dracula
 
