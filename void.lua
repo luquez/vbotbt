@@ -135,7 +135,7 @@ addSeparator()
 Panels.ManaItem()
 UI.Separator()
 
-local potId = 7643  -- ID da potion
+local potId = 23373  -- ID da potion
 local interval = 500  -- 0.5s
 
 macro(interval, "Pot Craft SPAM", function()
