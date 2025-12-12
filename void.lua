@@ -56,9 +56,9 @@ end)  -- 🔹 fecha macro Buff Void
 
 UI.Separator()
 
-local spell = "Nether Gaze"
+local spell = "Void Surge"
 
-macro(1000, "Void - Spell Farm", function()
+macro(1000, "Void - Spell Farm 1", function()
     local target = g_game.getAttackingCreature()
     if not target then
         say(spell)
