@@ -275,6 +275,9 @@ macro(500, "Auto Tower", function()
 end)
 UI.Separator()
 
+lblInfo= UI.Label("Utilidades")
+lblInfo:setColor("green")
+
 local itemId = 41656
 local radius = 7 -- distância do personagem (1 sqm em volta)
 
@@ -333,42 +336,9 @@ end)
 
 UI.Separator()
 
-local itemOrbIds = {548}
-local walkingToItemOrb = false
-
-local goToItemOrb = macro(100, "Orb de Natal", function() end)
-
-onAddThing(function(tile, thing)
-    if goToItemOrb.isOff() then return end
-    if not thing:isItem() then return end
-
-    local id = thing:getId()
-    if not table.find(itemOrbIds, id) then return end
-    if walkingToItemOrb then return end
-
-    walkingToItemOrb = true
-    CaveBot.setOn(false)
-    delay(100)
-
-    local pos = thing:getPosition()
-    autoWalk(pos, { precision = 0 })
-
-    -- reforça walk caso o bot não chegue na primeira tentativa
-    schedule(600, function()
-        if posx() ~= pos.x or posy() ~= pos.y or posz() ~= pos.z then
-            autoWalk(pos, { precision = 0 })
-        end
-    end)
-
-    -- libera movimento e cavebot depois
-    schedule(3000, function()
-        CaveBot.setOn(true)
-        walkingToItemOrb = false
-    end)
-end)
-
-
 UI.Separator()
+lblInfo= UI.Label("Use or Drop")
+lblInfo:setColor("green")
 
 local ui = setupUI([[
 Panel
@@ -380,7 +350,7 @@ Panel
     anchors.left: parent.left
     text-align: center
     width: 130
-    !text: tr('Dropper')
+    !text: tr('Use & Drop')
 
   Button
     id: edit
@@ -446,9 +416,9 @@ edit:hide()
 if not storage.dropper then
     storage.dropper = {
       enabled = false,
-      trashItems = { 283, 284, 285 },
-      useItems = { 21203, 14758 },
-      capItems = { 21175 }
+      trashItems = { },
+      useItems = { 32624, 32632 },
+      capItems = { }
     }
 end
 
