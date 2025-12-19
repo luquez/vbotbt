@@ -18,9 +18,11 @@ local URL_VOID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
 local URL_WAR  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/war.lua"
 local URL_ARCHER  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/archer.lua"
+
 -- =============================================
 -- 🧠 Execução Remota
 -- =============================================
+
 local function executeRemote(name, url, label)
     print("[LuqueBot] 🔁 Baixando " .. name .. "...")
     HTTP.get(url .. "?nocache=" .. os.time(), function(code, err)
@@ -35,9 +37,9 @@ local function executeRemote(name, url, label)
 
         local ok, res = pcall(loadstring(code))
         if ok then
-            print("[LuqueBot] 🚀 " .. name .. " executado!")
+            print("[LuqueBot]  " .. name .. " executado!")
             if label then
-                label:setText("✅ " .. name .. " carregado!")
+                label:setText(" " .. name .. " carregado!")
                 label:setColor("green")
             end
         else
@@ -98,7 +100,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             { name = "Archer",          url = URL_ARCHER,  color = "green" },
         }
 
-        local classModules = { Void=true, Guns=true, War=true }
+        local classModules = { Void=true, Guns=true, War=true, Archer=true}
 
         storage.luqueClassByChar = storage.luqueClassByChar or {}
 
@@ -142,7 +144,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
         end
 
         UI.Separator()
-        UI.Label("Bot by Luque – Autoupdate"):setColor("white")
+        UI.Label("Bot by LichKing"):setColor("yellow")
 
     end)
 end)
