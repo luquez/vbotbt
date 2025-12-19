@@ -54,7 +54,7 @@ lblInfo:setColor("blue")
 UI.Separator()
 
 
-local healingSpell = "Ranger Blessing"
+local healingSpell = "Rangers Blessing"
 local healthPercent = 97
 macro(200, "Ranger Blessing", function()
   if isInPz() then return end   
