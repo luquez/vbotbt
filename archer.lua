@@ -1,27 +1,29 @@
-setDefaultTab("War")
+setDefaultTab("Archer")
 
-lblInfo= UI.Label("War - Fael Noob")
+lblInfo= UI.Label("Archer")
 lblInfo:setColor("red")
 
 UI.Separator()
 
--- classe_warrior.lua
+-- classe_archer.lua
 local version = "1.0"
-print("[Luquebot] Classe: War carregada v" .. version)
+print("[Luquebot] Classe: archer carregada v" .. version)
 
--- Combo War Sequence
-macro(200, "Combo Kina", function()
-  if g_game.isAttacking() then
-    say("Cleave")
-    say("Dancing Axes")
-    say("Northern Rage")
-    say("Hundred Blades")
-    say("Cyclone")
-    say("Groundshaker")
-    say("Fast Sweep")
-    say("Whirlwind Throw")
-  end
+-- Combo Archer Sequence
+macro(200, "Archer Combo", function()
+  if not g_game.isAttacking() then return end
+
+  -- Skills do maior level para o menor
+  say("Arrow Rain")
+  say("Brute Bane Arrow")
+  say("Arrow Fury")
+  say("Arrow Volley")
+  say("Magic Arrows")
+  say("Explosive Arrow")
+  say("Triple Arrow")
+--  say("Arrow")
 end)
+
 
 
 
@@ -37,20 +39,9 @@ UI.Separator()
 UI.Separator()
 
 -- Buff 1: War
-macro(16000, "Buff War", function()
+macro(16000, "Buff Archer", function()
   if not isInPz() then
-    say("Defender Spirit") -- magia do buff
-  end
-end)  -- 🔹 
-
-UI.Separator()
-
-UI.Separator()
-
--- Buff 2: War
-macro(1000, "Exeta", function()
-  if not isInPz() then
-    say("Challenge") -- magia do buff
+    say("Sharpshooter") -- magia do buff
   end
 end)  -- 🔹 
 
@@ -63,9 +54,9 @@ lblInfo:setColor("blue")
 UI.Separator()
 
 
-local healingSpell = "Intense Wound Cleansing"
+local healingSpell = "Ranger Blessing"
 local healthPercent = 97
-macro(200, "Intense Wound Cleansing", function()
+macro(200, "Ranger Blessing", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
@@ -78,9 +69,9 @@ UI.Separator()
 UI.Separator()
 
 
-local healingSpell = "Limb Restoration"
+local healingSpell = "Ranger Restoration"
 local healthPercent = 97
-macro(200, "Limb Restoration", function()
+macro(200, "Ranger Restoration", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
