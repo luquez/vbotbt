@@ -487,3 +487,79 @@ end)
 
 
 
+UI.Separator()
+lblInfo= UI.Label("DG")
+lblInfo:setColor("green")
+
+local function tryClick(widget)
+  if not widget then return false end
+
+  -- tenta onClick
+  if widget.onClick then
+    widget:onClick()
+    return true
+  end
+
+  -- fallback: tenta mouse release (muitos OTC usam isso)
+  if widget.onMouseRelease then
+    widget:onMouseRelease(MouseLeftButton)
+    return true
+  end
+
+  -- fallback final: tenta click() se existir
+  if widget.click then
+    widget:click()
+    return true
+  end
+
+  return false
+end
+
+local function findVisibleEnterButtons()
+  local root = g_ui.getRootWidget()
+  if not root then return {} end
+
+  local found = {}
+
+  local function scan(w)
+    for _, c in ipairs(w:getChildren()) do
+      -- pega todos com id enterButton
+      if c.getId and c:getId() == "enterButton" then
+        table.insert(found, c)
+      end
+      scan(c)
+    end
+  end
+
+  scan(root)
+  return found
+end
+
+macro(300, "Auto Enter DG (debug)", function()
+  local buttons = findVisibleEnterButtons()
+  if #buttons == 0 then
+    -- printa só de vez em quando pra não floodar
+    return
+  end
+
+  for i, btn in ipairs(buttons) do
+    local txt = (btn.getText and btn:getText()) or ""
+    local vis = btn.isVisible and btn:isVisible() or false
+    local en  = btn.isEnabled and btn:isEnabled() or true
+
+    print(string.format("[AutoDG] enterButton #%d text='%s' visible=%s enabled=%s class=%s",
+      i, txt, tostring(vis), tostring(en), (btn.getClassName and btn:getClassName()) or "?"
+    ))
+
+    -- Clica só no que parece ser o da DG
+    if vis and en and (txt == "" or txt:lower() == "enter") then
+      if tryClick(btn) then
+        print("[AutoDG] clique enviado!")
+        delay(600)
+        return
+      end
+    end
+  end
+end)
+
+
