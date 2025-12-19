@@ -56,7 +56,7 @@ UI.Separator()
 
 local healingSpell = "Rangers Blessing"
 local healthPercent = 97
-macro(200, "Ranger Blessing", function()
+macro(200, "Rangers Blessing", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
