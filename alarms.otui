@@ -90,11 +90,11 @@ AlarmsWindow < MainWindow
 
     AlarmCheckBoxAndSpinBox
       id: lowMana
-      text: Low Mana
+      text: Low Manaaaaa
 
     AlarmCheckBox
       id: playerAttack
-      text: Player Attack
+      text: Player Attacklll
 
     AlarmCheckBox
       id: creatureDetected
