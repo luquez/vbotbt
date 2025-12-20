@@ -10,9 +10,9 @@ local version = "1.0"
 print("[Luquebot] Classe: Void carregada v" .. version)
 
 -- Combo Void Sequence
-macro(200, "Combo Void - Full", function()
+macro(200, "Combo + 2500", function()
   if g_game.isAttacking() then
---    say("Void Rupture")
+    say("Void Rupture")
     say("Black Hole")
     say("Void Intruder")
     say("Abyssal Tear")
@@ -24,7 +24,7 @@ end)
 
 UI.Separator()
 
-macro(200, "Test - Luque", function()
+macro(200, "Sem 2500", function()
   if g_game.isAttacking() then
 --    say("Void Rupture")
     say("Black Hole")
@@ -32,7 +32,7 @@ macro(200, "Test - Luque", function()
     say("Abyssal Tear")
     say("Nether Gaze")
     say("Rifts of Beyond")
---    say("Void Surge")  
+    say("Void Surge")  
   end
 end)
 
