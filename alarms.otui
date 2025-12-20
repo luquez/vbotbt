@@ -10,6 +10,7 @@ AlarmCheckBox < Panel
     text: Player Attack
     text-offset: 17 -3
 
+
 AlarmCheckBoxAndSpinBox < Panel
   height: 20
   margin-top: 2
@@ -37,6 +38,7 @@ AlarmCheckBoxAndSpinBox < Panel
     editable: true
     focusable: true
 
+
 AlarmCheckBoxAndTextEdit < Panel
   height: 20
   margin-top: 2
@@ -60,6 +62,7 @@ AlarmCheckBoxAndTextEdit < Panel
     margin-top: 1
     margin-bottom: 1
 
+
 AlarmsWindow < MainWindow
   !text: tr('Alarms')
   size: 330 400
@@ -76,6 +79,57 @@ AlarmsWindow < MainWindow
     padding: 10
     padding-top: 5
 
+    # ================= EXISTING ALARMS =================
+    AlarmCheckBox
+      id: damageTaken
+      text: Damage Taken
+
+    AlarmCheckBoxAndSpinBox
+      id: lowHealth
+      text: Low Health
+
+    AlarmCheckBoxAndSpinBox
+      id: lowMana
+      text: Low Mana
+
+    AlarmCheckBox
+      id: playerAttack
+      text: Player Attack
+
+    AlarmCheckBox
+      id: creatureDetected
+      text: Creature Detected
+
+    AlarmCheckBox
+      id: playerDetected
+      text: Player Detected
+
+    AlarmCheckBoxAndTextEdit
+      id: creatureName
+      text: Creature Name
+
+    # ================= NEW CHAT ALARMS =================
+    AlarmCheckBox
+      id: rare
+      text: Rare Spawn
+
+    AlarmCheckBox
+      id: epic
+      text: Epic Spawn
+
+    AlarmCheckBox
+      id: legendary
+      text: Legendary Spawn
+
+    AlarmCheckBox
+      id: continental
+      text: Continental Boss
+
+    AlarmCheckBox
+      id: raid
+      text: Raid
+
+
   FlatPanel
     id: settingsList
     anchors.left: parent.left
@@ -85,9 +139,18 @@ AlarmsWindow < MainWindow
     margin-top: 10
     padding: 5
     padding-left: 10
-    layout: 
+    layout:
       type: verticalBox
       fit-children: true
+
+    AlarmCheckBox
+      id: ignoreFriends
+      text: Ignore Friends
+
+    AlarmCheckBox
+      id: flashClient
+      text: Flash Client
+
 
   Label
     anchors.verticalCenter: settingsList.top
@@ -98,6 +161,7 @@ AlarmsWindow < MainWindow
     font: verdana-11px-rounded
     color: #9f5031
 
+
   Label
     anchors.verticalCenter: list.top
     anchors.left: list.left
@@ -107,12 +171,14 @@ AlarmsWindow < MainWindow
     font: verdana-11px-rounded
     color: #9f5031
 
+
   HorizontalSeparator
     id: separator
     anchors.right: parent.right
     anchors.left: parent.left
     anchors.bottom: closeButton.top
     margin-bottom: 8
+
 
   ResizeBorder
     id: bottomResizeBorder
@@ -123,6 +189,7 @@ AlarmsWindow < MainWindow
     margin-left: 3
     margin-right: 3
     background: #ffffff88  
+
 
   Button
     id: closeButton
