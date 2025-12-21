@@ -69,7 +69,7 @@ UI.Separator()
 UI.Separator()
 
 
-local healingSpell = "Ranger Restoration"
+local healingSpell = "Rangers Restoration"
 local healthPercent = 97
 macro(200, "Ranger Restoration", function()
   if isInPz() then return end   
