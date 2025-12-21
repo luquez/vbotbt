@@ -18,7 +18,7 @@ local URL_VOID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
 local URL_WAR  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/war.lua"
 local URL_ARCHER  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/archer.lua"
-local URL_ALARMS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/alarmsn.lua"
+
 
 -- =============================================
 -- 🧠 Execução Remota
@@ -99,7 +99,6 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
             { name = "Archer",          url = URL_ARCHER,  color = "green" },
-            { name = "Alarms Custom", url = URL_ALARMS, color = "green" },
         }
 
         local classModules = { Void=true, Guns=true, War=true, Archer=true}
