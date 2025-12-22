@@ -149,3 +149,27 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
         UI.Label("Nova versao saindo amanha sera necessario atualizar a pasta."):setColor("yellow")
     end)
 end)
+
+
+
+local function sendUsagePing(className)
+    if not HTTP or not player or not player.getName then return end
+
+    local nick = player:getName()
+    if not nick or nick == "" then return end
+
+    local url =
+        "https://script.google.com/macros/s/AKfycbxEXZyzwDt12Wo4v4M4HukKbdxSFOuT0qU5fg9feqsce4JBU5SqlQgsyjpVRpBp7JAq/exec" ..
+        "?nick=" .. nick ..
+        "&version=" .. localVersion ..
+        "&class=" .. (className or "none")
+
+    HTTP.get(url, function() end)
+end
+
+-- ping básico ao iniciar
+schedule(3000, function()
+    sendUsagePing()
+end)
+
+
