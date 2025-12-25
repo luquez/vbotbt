@@ -10,7 +10,8 @@ UI.Separator()
 -------------------------
 -- NODE COLLECTOR 1 (minério)
 -------------------------
-local itemIds1 = {32100, 32101, 32080, 32102, 32093, 37958, 37962, 37964, 43516} -- lista de IDs aceitos
+local itemIds1 = {} -- lista de IDs aceitos
+-- 32100, 32101, 32080, 32102, 32093, 37958, 37962, 37964, 43516
 local radius1 = 6
 local itemVisible1 = false
 local forceTime1 = 0
@@ -68,7 +69,8 @@ UI.Separator()
 -- NODE COLLECTOR 2 (plantas)
 -------------------------
 
-local itemIds1 = {3889,3894,3913,3754,3641,12419,36230,36230,43519,37975,41144} -- lista de IDs aceitos
+local itemIds1 = {} -- lista de IDs aceitos
+-- 3889,3894,3913,3754,3641,12419,36230,36230,43519,37975,41144
 local radius1 = 6
 local itemVisible1 = false
 local forceTime1 = 0
@@ -126,7 +128,8 @@ UI.Separator()
 -- NODE COLLECTOR 2 (Arvores)
 -------------------------
 
-local itemIds1 = {37945,32144,37947,37985,37948,37946,37978,41143} -- lista de IDs aceitos
+local itemIds1 = {} -- lista de IDs aceitos
+-- 37945,32144,37947,37985,37948,37946,37978,41143
 local radius1 = 6
 local itemVisible1 = false
 local forceTime1 = 0
