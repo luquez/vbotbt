@@ -100,7 +100,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
             { name = "Archer",          url = URL_ARCHER,  color = "green" },
-            { name = "DK",             url = URL_DK,  color = "green" },
+            { name = "dk",             url = URL_DK,  color = "green" },
         }
 
         local classModules = { Void=true, Guns=true, War=true, Archer=true}
