@@ -7,7 +7,7 @@ UI.Separator()
 
 -- classe_warrior.lua
 local version = "1.0"
-print("[Luquebot] Classe: War carregada v" .. version)
+print("[Luquebot] Classe: DK carregada v" .. version)
 
 -- Combo DK Sequence
 
@@ -49,22 +49,6 @@ lblInfo = UI.Label("Heal")
 lblInfo:setColor("blue")
 
 UI.Separator()
-
-
-local healingSpell = "Intense Wound Cleansing"
-local healthPercent = 97
-macro(200, "Intense Wound Cleansing", function()
-  if isInPz() then return end   
-  if hppercent() <= healthPercent then
-    say(healingSpell)
-  end
-end)
-
-UI.Separator()
-
-
-UI.Separator()
-
 
 lblInfo = UI.Label("")
 lblInfo = UI.Label("Potion")
