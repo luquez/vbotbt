@@ -11,7 +11,7 @@ print("[Luquebot] Classe: Wiz carregada v" .. version)
 
 UI.Separator()
 
-macro(200, "Sem 2500", function()
+macro(200, "Combo - Wiz", function()
   if g_game.isAttacking() then
 --    say("Void Rupture")
     say("Meteor")
@@ -20,6 +20,16 @@ macro(200, "Sem 2500", function()
     say("Energy Wave")
     say("Thunder Strike")
     say("Burning Breath")  
+  end
+end)
+
+macro(200, "COMBO HASH VIADO", function()
+  if g_game.isAttacking() then
+    say("Meteor")
+    say("Energy Missiles")
+    say("Burning Ground")
+    say("Energy Wave")
+    say("Thunder Strike")
   end
 end)
 
