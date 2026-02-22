@@ -96,7 +96,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
         --------------------------------------------
         local modules = {
             { name = "Core-Utilidades", url = URL_CORE, color = "green" },
-            { name = "Wiz",            url = URL_VOID, color = "green" },
+            { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
             { name = "Archer",          url = URL_ARCHER,  color = "green" },
