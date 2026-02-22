@@ -75,3 +75,15 @@ macro(70, "Follow Normal",  function()
         end
     end
 end) 
+
+
+staminaOn = macro(1000, function()
+    local Stamina = player:getStamina();
+    local item = 23518 -- mudar ID da stamina
+    if (Stamina < 2399) then
+         use(item) 
+    end
+end)
+addIcon("staminaOn", {item=23518, text="Stamin"}, function(icon, isOn)
+staminaOn.setOn(isOn)
+end)
