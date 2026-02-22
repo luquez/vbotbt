@@ -1,6 +1,6 @@
-setDefaultTab("Wizard")
+setDefaultTab("Wiz")
 
-lblInfo= UI.Label("Wizard")
+lblInfo= UI.Label("Wiz")
 lblInfo:setColor("red")
 
 UI.Separator()
