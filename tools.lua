@@ -65,10 +65,10 @@ onCreaturePositionChange(function(creature, newPos, oldPos)
     end
 end)
 
-staminaOn = macro(1000, function()
-    local Stamina = player:getStamina();
+staminaOn = macro(1000, "Auto Stamina", function()
+    local Stamina = player:getStamina()
     local item = 23518 -- mudar ID da stamina
     if (Stamina < 2399) then
-         use(item) 
+        use(item)
     end
 end)
