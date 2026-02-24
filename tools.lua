@@ -10,8 +10,8 @@ macro(500, "Anti Follow", function()
 end)
 
 
-lblInfo= UI.Label("______________")
-lblInfo:setColor("green")
+--lblInfo= UI.Label("______________")
+--lblInfo:setColor("green")
 
 
 lblInfo= UI.Label("AUTO FOLLOW")
@@ -74,13 +74,12 @@ staminaOn = macro(1000, "Auto Stamina", function()
 end)
 
 
-Exp15 = macro(10000, "Perga 15%", function()
+Exp15 = macro(10000, "Exp Scroll 15%", function()
     local item = 6119 -- COLOCA AQUI O ID DO ITEM
     use(item)
 end)
 
-
-Exp40 = macro(10000, "Perga 40", function()
+Exp40 = macro(10000, "Exp Scroll 40%", function()
     local item = 11510 -- COLOCA AQUI O ID DO ITEM
     use(item)
 end)
