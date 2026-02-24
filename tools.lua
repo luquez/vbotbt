@@ -65,25 +65,10 @@ onCreaturePositionChange(function(creature, newPos, oldPos)
     end
 end)
 
-macro(70, "Follow Normal",  function()
-    if g_game.isFollowing() then
-        return
-    end
-    for _, followcreature in ipairs(g_map.getSpectators(pos(), false)) do
-        if (followcreature:getName() == storage[followName].player and getDistanceBetween(pos(), followcreature:getPosition()) <= 8) then
-            g_game.follow(followcreature)
-        end
-    end
-end) 
-
-
 staminaOn = macro(1000, function()
     local Stamina = player:getStamina();
     local item = 23518 -- mudar ID da stamina
     if (Stamina < 2399) then
          use(item) 
     end
-end)
-addIcon("staminaOn", {item=23518, text="Stamin"}, function(icon, isOn)
-staminaOn.setOn(isOn)
 end)
