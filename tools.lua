@@ -67,7 +67,7 @@ end)
 
 staminaOn = macro(1000, "Auto Stamina", function()
     local Stamina = player:getStamina()
-    local item = 23518 -- mudar ID da stamina
+    local item = 31105 -- mudar ID da stamina
     if (Stamina < 2399) then
         use(item)
     end
@@ -75,12 +75,12 @@ end)
 
 
 Exp15 = macro(600010, "Perga 15%", function()
-    local item = 12345 -- COLOCA AQUI O ID DO ITEM
+    local item = 6119 -- COLOCA AQUI O ID DO ITEM
     use(item)
 end)
 
 
 Exp40 = macro(600000, "Perga 40", function()
-    local item = 12345 -- COLOCA AQUI O ID DO ITEM
+    local item = 11510 -- COLOCA AQUI O ID DO ITEM
     use(item)
 end)
