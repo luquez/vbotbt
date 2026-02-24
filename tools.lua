@@ -72,3 +72,15 @@ staminaOn = macro(1000, "Auto Stamina", function()
         use(item)
     end
 end)
+
+
+Exp15 = macro(600010, "Perga 15%", function()
+    local item = 12345 -- COLOCA AQUI O ID DO ITEM
+    use(item)
+end)
+
+
+Exp40 = macro(600000, "Perga 40", function()
+    local item = 12345 -- COLOCA AQUI O ID DO ITEM
+    use(item)
+end)
