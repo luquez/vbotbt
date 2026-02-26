@@ -83,3 +83,20 @@ Exp40 = macro(10000, "Exp Scroll 40%", function()
     local item = 11510 -- COLOCA AQUI O ID DO ITEM
     use(item)
 end)
+
+EliteScroll = macro(10000, "Scroll de Elite", function()
+    local item = 32624 -- COLOCA AQUI O ID DO ITEM
+    use(item)
+end)
+
+
+MineScroll = macro(10000, "Scroll Mine", function()
+    local item = 32622 -- COLOCA AQUI O ID DO ITEM
+    use(item)
+end)
+
+FishingScroll = macro(10000, "Scroll Fishing", function()
+    local item = 32625 -- COLOCA AQUI O ID DO ITEM
+    use(item)
+end)
+
