@@ -98,23 +98,10 @@ addSeparator()
 Panels.Health()
 addSeparator()
 
--- MAGIC RESTORATION (1200)
-local healingSpell = "Open Wounds"
-local healthPercent = 97
-macro(200, "Healing", function()
-  if isInPz() then return end   
-  if hppercent() <= healthPercent then
-    say(healingSpell)
-  end
-end)
-
-UI.Separator()
-
-lblInfo = UI.Label("")
-lblInfo = UI.Label("Heal")
-lblInfo:setColor("blue")
-
-UI.Separator()
+lblInfo:setColor("green")
+addSeparator()
+Panels.Health()
+addSeparator()
 
 lblInfo = UI.Label("")
 lblInfo = UI.Label("Potion")
