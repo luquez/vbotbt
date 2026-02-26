@@ -113,41 +113,25 @@ local interval = 500  -- 0.5s
 
 
 
-
 UI.Separator()
+UI.Label("Magic (HP)") :setColor("blue")
+addSeparator()
 
-UI.Label("Health Spell"):setColor("blue")
+local spell = ""
+local hpBelow = 60 -- % de vida
 
-local spellName = "Abyssal Sacrifice" -- sua magic aqui
-local defaultPercent = 80
-
-local healthSpellStorage = "healthSpellPanel"
-if not storage[healthSpellStorage] then
-  storage[healthSpellStorage] = {
-    enabled = false,
-    percent = defaultPercent
-  }
-end
-
--- Slider de %
-UI.HorizontalScrollBar(storage[healthSpellStorage].percent, 1, 100, function(widget, value)
-  storage[healthSpellStorage].percent = value
-end)
-
--- Macro
-local healthSpellMacro = macro(200, function()
-  if not storage[healthSpellStorage].enabled then return end
-  
-  if hppercent() <= storage[healthSpellStorage].percent then
-    say(spellName)
+local healSpell = macro(200, "Abyssal Sacrifice", function()
+  if hppercent() <= hpBelow then
+    say(spell)
   end
 end)
 
--- Botão ON/OFF igual painel
-addButton("HealthSpell", "Magic", function(widget)
-  storage[healthSpellStorage].enabled = not storage[healthSpellStorage].enabled
-  widget:setOn(storage[healthSpellStorage].enabled)
+addButton("healSpellBtn", "Magic", function(widget)
+  healSpell:setOn(not healSpell:isOn())
+  widget:setOn(healSpell:isOn())
 end)
+
+UI.Separator()
 
 UI.Separator()
 
