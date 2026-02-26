@@ -13,7 +13,6 @@ print("[Luquebot] Classe: DK carregada v" .. version)
 
 macro(200, "Combo Custom", function()
   if g_game.isAttacking() then
-    say("Open Wounds")
     say("Cursed Flames")
     say("Thorned Shadows")
     say("Death Blade")
@@ -71,6 +70,18 @@ end)
 addIcon("Combo", {item=2660, text="Combo"}, comboss)
 
 -- Macro separada para Sharpshooter a cada 22 segundos
+
+UI.Separator()
+
+-- MAGIC RESTORATION (1200)
+local healingSpell = "Open Wounds"
+local healthPercent = 97
+macro(200, "Intense Wound Cleansing", function()
+  if isInPz() then return end   
+  if hppercent() <= healthPercent then
+    say(healingSpell)
+  end
+end)
 
 UI.Separator()
 
