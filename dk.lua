@@ -83,6 +83,21 @@ end)  -- 🔹
 
 UI.Separator()
 
+lblInfo = UI.Label("")
+lblInfo = UI.Label("Potion")
+lblInfo:setColor("blue")
+addSeparator()
+Panels.HealthItem()
+UI.Separator()
+
+local potId = 7643  -- ID da potion
+local interval = 500  -- 0.5s
+
+lblInfo:setColor("green")
+addSeparator()
+Panels.Health()
+addSeparator()
+
 -- MAGIC RESTORATION (1200)
 local healingSpell = "Open Wounds"
 local healthPercent = 97
@@ -110,28 +125,6 @@ UI.Separator()
 
 local potId = 7643  -- ID da potion
 local interval = 500  -- 0.5s
-
-
-
-UI.Separator()
-UI.Label("Magic (HP)") :setColor("blue")
-addSeparator()
-
-local spell = ""
-local hpBelow = 60 -- % de vida
-
-local healSpell = macro(200, "Abyssal Sacrifice", function()
-  if hppercent() <= hpBelow then
-    say(spell)
-  end
-end)
-
-addButton("healSpellBtn", "Magic", function(widget)
-  healSpell:setOn(not healSpell:isOn())
-  widget:setOn(healSpell:isOn())
-end)
-
-UI.Separator()
 
 UI.Separator()
 
