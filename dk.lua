@@ -103,18 +103,6 @@ addSeparator()
 Panels.Health()
 addSeparator()
 
-lblInfo = UI.Label("")
-lblInfo = UI.Label("Potion")
-lblInfo:setColor("blue")
-addSeparator()
-Panels.HealthItem()
-UI.Separator()
-
-local potId = 7643  -- ID da potion
-local interval = 500  -- 0.5s
-
-UI.Separator()
-
 macro(interval, "Pot Craft SPAM", function()
     usewith(potId, player)
 end)
