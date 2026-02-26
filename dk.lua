@@ -73,6 +73,16 @@ addIcon("Combo", {item=2660, text="Combo"}, comboss)
 
 UI.Separator()
 
+
+-- Buff 1: War
+macro(16000, "Buff DK", function()
+  if not isInPz() then
+    say("Overflow") -- magia do buff
+  end
+end)  -- 🔹 
+
+UI.Separator()
+
 -- MAGIC RESTORATION (1200)
 local healingSpell = "Open Wounds"
 local healthPercent = 97
@@ -108,8 +118,8 @@ UI.Separator()
 
 UI.Label("Health Spell"):setColor("blue")
 
-local spellName = "exura ico" -- sua magic aqui
-local defaultPercent = 60
+local spellName = "Abyssal Sacrifice" -- sua magic aqui
+local defaultPercent = 80
 
 local healthSpellStorage = "healthSpellPanel"
 if not storage[healthSpellStorage] then
