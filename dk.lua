@@ -76,7 +76,7 @@ UI.Separator()
 -- MAGIC RESTORATION (1200)
 local healingSpell = "Open Wounds"
 local healthPercent = 97
-macro(200, "Intense Wound Cleansing", function()
+macro(200, "Healing", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
@@ -100,6 +100,46 @@ UI.Separator()
 
 local potId = 7643  -- ID da potion
 local interval = 500  -- 0.5s
+
+
+
+
+UI.Separator()
+
+UI.Label("Health Spell"):setColor("blue")
+
+local spellName = "exura ico" -- sua magic aqui
+local defaultPercent = 60
+
+local healthSpellStorage = "healthSpellPanel"
+if not storage[healthSpellStorage] then
+  storage[healthSpellStorage] = {
+    enabled = false,
+    percent = defaultPercent
+  }
+end
+
+-- Slider de %
+UI.HorizontalScrollBar(storage[healthSpellStorage].percent, 1, 100, function(widget, value)
+  storage[healthSpellStorage].percent = value
+end)
+
+-- Macro
+local healthSpellMacro = macro(200, function()
+  if not storage[healthSpellStorage].enabled then return end
+  
+  if hppercent() <= storage[healthSpellStorage].percent then
+    say(spellName)
+  end
+end)
+
+-- Botão ON/OFF igual painel
+addButton("HealthSpell", "Magic", function(widget)
+  storage[healthSpellStorage].enabled = not storage[healthSpellStorage].enabled
+  widget:setOn(storage[healthSpellStorage].enabled)
+end)
+
+UI.Separator()
 
 macro(interval, "Pot Craft SPAM", function()
     usewith(potId, player)
