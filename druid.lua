@@ -81,45 +81,6 @@ end)
 
 UI.Separator()
 
-UI.Label("Heal Friend"):setColor("blue")
-
-local sioStorage = "autoHealFriend"
-
-if not storage[sioStorage] then
-  storage[sioStorage] = {
-    name = "",
-    hpPercent = 70,
-    enabled = false
-  }
-end
-
--- Caixa para digitar o nome
-UI.TextEdit(storage[sioStorage].name, function(widget, text)
-  storage[sioStorage].name = text
-end)
-
--- Slider de %
-UI.HorizontalScrollBar(storage[sioStorage].hpPercent, 1, 100, function(widget, value)
-  storage[sioStorage].hpPercent = value
-end)
-
--- Macro
-local sioMacro = macro(200, function()
-  if not storage[sioStorage].enabled then return end
-  
-  local target = getCreatureByName(storage[sioStorage].name)
-  if target and target:getHealthPercent() <= storage[sioStorage].hpPercent then
-    say("Heal Friend " .. storage[sioStorage].name)
-  end
-end)
-
--- Botão ON/OFF
-addButton("healFriendBtn", "SIO", function(widget)
-  storage[sioStorage].enabled = not storage[sioStorage].enabled
-  widget:setOn(storage[sioStorage].enabled)
-end)
-
-UI.Separator()
 
 UI.Separator()
 
@@ -185,4 +146,48 @@ onKeyPress(function(keys)
     say('levitate "down') 
   end
 end)
+UI.Separator()
+
+
+
+
+
+UI.Label("Heal Friend"):setColor("blue")
+
+local sioStorage = "autoHealFriend"
+
+if not storage[sioStorage] then
+  storage[sioStorage] = {
+    name = "",
+    hpPercent = 70,
+    enabled = false
+  }
+end
+
+-- Caixa para digitar o nome
+UI.TextEdit(storage[sioStorage].name, function(widget, text)
+  storage[sioStorage].name = text
+end)
+
+-- Slider de %
+UI.HorizontalScrollBar(storage[sioStorage].hpPercent, 1, 100, function(widget, value)
+  storage[sioStorage].hpPercent = value
+end)
+
+-- Macro
+local sioMacro = macro(200, function()
+  if not storage[sioStorage].enabled then return end
+  
+  local target = getCreatureByName(storage[sioStorage].name)
+  if target and target:getHealthPercent() <= storage[sioStorage].hpPercent then
+    say("Heal Friend " .. storage[sioStorage].name)
+  end
+end)
+
+-- Botão ON/OFF
+addButton("healFriendBtn", "SIO", function(widget)
+  storage[sioStorage].enabled = not storage[sioStorage].enabled
+  widget:setOn(storage[sioStorage].enabled)
+end)
+
 UI.Separator()
