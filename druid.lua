@@ -150,51 +150,5 @@ UI.Separator()
 
 
 
-UI.Separator()
-UI.Label("Heal Friend"):setColor("blue")
-addSeparator()
-
-local sioStorage = "autoHealFriend"
-
-if not storage[sioStorage] then
-  storage[sioStorage] = {
-    name = "",
-    hpPercent = 70,
-    enabled = false
-  }
-end
-
--- Campo nome
-UI.TextEdit(storage[sioStorage].name, function(widget, text)
-  storage[sioStorage].name = text
-end)
-
--- Label mostrando %
-local percentLabel = UI.Label("HP%: " .. storage[sioStorage].hpPercent)
-
--- Barra
-UI.ScrollBar(storage[sioStorage].hpPercent, 1, 100, function(widget, value)
-  storage[sioStorage].hpPercent = value
-  percentLabel:setText("HP%: " .. value)
-end)
-
--- Macro
-local sioMacro = macro(200, function()
-  if not storage[sioStorage].enabled then return end
-
-  local target = getCreatureByName(storage[sioStorage].name)
-  if target and target:getHealthPercent() <= storage[sioStorage].hpPercent then
-    say('Heal Friend "' .. storage[sioStorage].name .. '"')
-  end
-end)
-
--- Botão
-addButton("healFriendBtn", "SIO", function(widget)
-  storage[sioStorage].enabled = not storage[sioStorage].enabled
-  widget:setOn(storage[sioStorage].enabled)
-  sioMacro:setOn(storage[sioStorage].enabled)
-end)
-
-UI.Separator()
 
 UI.Separator()
