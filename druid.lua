@@ -1,35 +1,23 @@
-setDefaultTab("Wiz")
+setDefaultTab("Druid")
 
-lblInfo= UI.Label("Wiz")
+lblInfo= UI.Label("Druid")
 lblInfo:setColor("red")
 
 UI.Separator()
 
 -- classe_void.lua
 local version = "1.0"
-print("[Luquebot] Classe: Wiz carregada v" .. version)
+print("[Luquebot] Classe: Druid carregada v" .. version)
 
 UI.Separator()
 
-macro(200, "Combo - Wiz", function()
+macro(200, "Combo - Druid", function()
   if g_game.isAttacking() then
---    say("Void Rupture")
-    say("Meteor")
-    say("Energy Missiles")
-    say("Burning Ground")
-    say("Energy Wave")
-    say("Thunder Strike")
-    say("Burning Breath")  
-  end
-end)
-
-macro(200, "COMBO HASH VIADO", function()
-  if g_game.isAttacking() then
-    say("Meteor")
-    say("Energy Missiles")
-    say("Burning Ground")
-    say("Energy Wave")
-    say("Thunder Strike")
+    say("Shattering Ice")
+    say("Ice Storm")
+    say("Eternal Winter")
+    say("Carniphila Attack")
+    say("Strong Terra Strike")
   end
 end)
 
@@ -45,22 +33,11 @@ UI.Separator()
 UI.Separator()
 
 -- Buff 1: Void
-macro(8000, "Buff Mage", function()
+macro(8000, "Buff Druid", function()
   if not isInPz() then
-    say("Arcane Power") -- magia do buff
+    say("Nature Regen") -- magia do buff
   end
 end)  -- 🔹 fecha macro Buff Void
-
-UI.Separator()
-
-local spell = "Void Surge"
-
---macro(1000, "Void - Spell Farm 1", function()
---    local target = g_game.getAttackingCreature()
---    if not target then
---        say(spell)
---    end
---end)
 
 UI.Separator()
 
