@@ -14,12 +14,15 @@ local URL_VERSION = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/
 local URL_MAIN    = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Main.lua"
 
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
+local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
+
 local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/wiz.lua"
+local URL_DRUID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/druid.lua"
+local URL_DK  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/dk.lua"
 local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
 local URL_WAR  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/war.lua"
 local URL_ARCHER  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/archer.lua"
-local URL_DK  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/dk.lua"
-local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
+
 
 -- =============================================
 -- 🧠 Execução Remota
@@ -96,9 +99,10 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
         --------------------------------------------
         local modules = {
             { name = "Core-Utilidades", url = URL_CORE, color = "green" },
-            { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Tools",            url = URL_TOOLS, color = "green" },
             ------
+            { name = "Druid",            url = URL_DRUID, color = "green" },
+            { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
             { name = "Archer",          url = URL_ARCHER,  color = "green" },
@@ -107,7 +111,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
                     
         }
 
-        local classModules = { Void=true, Guns=true, War=true, Archer=true, Wiz=true}
+        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true}
 
         storage.luqueClassByChar = storage.luqueClassByChar or {}
 
