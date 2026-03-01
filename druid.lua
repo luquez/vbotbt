@@ -11,8 +11,20 @@ print("[Luquebot] Classe: Druid carregada v" .. version)
 
 UI.Separator()
 
-macro(200, "Combo - Druid", function()
+macro(200, "Combo - Druid - Sem 2500", function()
   if g_game.isAttacking() then
+    say("Shattering Ice")
+    say("Ice Storm")
+    say("Eternal Winter")
+    say("Carniphila Attack")
+    say("Strong Terra Strike")
+  end
+end)
+
+
+macro(200, "Combo - Druid + 2500", function()
+  if g_game.isAttacking() then
+    say("Thorn Barrage")
     say("Shattering Ice")
     say("Ice Storm")
     say("Eternal Winter")
