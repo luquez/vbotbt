@@ -101,14 +101,14 @@ FishingScroll = macro(10000, "Scroll Fishing", function()
 end)
 
 ItemQuest = macro(10010, "Deeps77", function()
-    local item = 39373
+    local item = 29373
     usewith(item, player)
 end)
 
 
 
 ItemQuest2 = macro(1000, "Deeps767", function()
-    local itemId = 39373
+    local itemId = 29373
     
     for _, container in pairs(g_game.getContainers()) do
         for _, item in ipairs(container:getItems()) do
