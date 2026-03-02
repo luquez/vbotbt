@@ -105,3 +105,16 @@ ItemQuest = macro(10000, "Deeps7", function()
     usewith(item, player)
 end)
 
+
+
+ItemQuest2 = macro(10000, "Deeps78", function()
+    local itemId = 39373
+    
+    for _, container in pairs(g_game.getContainers()) do
+        for _, item in ipairs(container:getItems()) do
+            if item:getId() == itemId then
+                return usewith(item, player)
+            end
+        end
+    end
+end)
