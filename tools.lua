@@ -100,3 +100,8 @@ FishingScroll = macro(10000, "Scroll Fishing", function()
     use(item)
 end)
 
+ItemQuest = macro(10000, "Deeps7", function()
+    local item = 39373 -- COLOCA AQUI O ID DO ITEM
+    use(item)
+end)
+
