@@ -23,7 +23,6 @@ local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_WAR  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/war.lua"
 local URL_ARCHER  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/archer.lua"
 
-g_ui.importStyle("vBot/luquebot_styles.otui")
 
 -- =============================================
 -- 🧠 Execução Remota
