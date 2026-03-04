@@ -24,6 +24,14 @@ local URL_WAR  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_ARCHER  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/archer.lua"
 
 
+local ok, err = pcall(function()
+  g_ui.importStyle("vBot/luquebot_styles.otui")
+end)
+
+if not ok then
+  print("[LuqueBot] ERRO importStyle:", err)
+end
+
 -- =============================================
 -- 🧠 Execução Remota
 -- =============================================
