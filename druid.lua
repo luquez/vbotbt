@@ -12,14 +12,13 @@ print("[Luquebot] Classe: Druid carregada v" .. version)
 UI.Separator()
 macro(200, "Shetter", function()
     say("Shattering Ice")
-  end
-end)
+  end)
+
 
 UI.Separator()
 macro(200, "Barrage", function()
     say("Thorn Barrage")
-  end
-end)
+    end)
 
 UI.Separator()
 
