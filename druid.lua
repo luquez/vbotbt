@@ -11,14 +11,12 @@ print("[Luquebot] Classe: Druid carregada v" .. version)
 
 UI.Separator()
 macro(200, "Shetter", function()
-  if g_game.isAttacking() then
     say("Shattering Ice")
   end
 end)
 
 UI.Separator()
 macro(200, "Barrage", function()
-  if g_game.isAttacking() then
     say("Thorn Barrage")
   end
 end)
