@@ -10,6 +10,20 @@ local version = "1.0"
 print("[Luquebot] Classe: Druid carregada v" .. version)
 
 UI.Separator()
+macro(200, "Shetter", function()
+  if g_game.isAttacking() then
+    say("Shattering Ice")
+  end
+end)
+
+UI.Separator()
+macro(200, "Barrage", function()
+  if g_game.isAttacking() then
+    say("Thorn Barrage")
+  end
+end)
+
+UI.Separator()
 
 macro(200, "Combo - Druid - Sem 2500", function()
   if g_game.isAttacking() then
@@ -21,6 +35,7 @@ macro(200, "Combo - Druid - Sem 2500", function()
   end
 end)
 
+UI.Separator()
 
 macro(200, "Combo - Druid + 2500", function()
   if g_game.isAttacking() then
