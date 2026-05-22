@@ -54,8 +54,6 @@ macro(interval, "Mana Training", function()
     say(spell)
 end)
 
-
-UI.Separator()
 UI.Separator()
 
 lblInfo = UI.Label("")
