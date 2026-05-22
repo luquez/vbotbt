@@ -17,7 +17,7 @@ local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
 
 local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/wiz.lua"
-local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/harmonic.lua"
+local URL_HAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/harmonic.lua"
 local URL_DRUID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/druid.lua"
 local URL_DK  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/dk.lua"
 local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
@@ -104,7 +104,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             ------
             
             { name = "Wiz",            url = URL_WIZ, color = "green" },
-            { name = "Harmonic",            url = URL_HARMONIC, color = "green" },
+            { name = "Har",            url = URL_HAR, color = "green" },
             { name = "Druid",            url = URL_DRUID, color = "green" },        
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
