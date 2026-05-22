@@ -13,15 +13,14 @@ UI.Separator()
 
 macro(200, "Combo - Harmonic", function()
   if g_game.isAttacking() then
-    say("Music Strike")      -- Level 8
-    say("Reverberate")       -- Level 25
-    say("Magic String")      -- Level 65
-    say("Crescendo")         -- Level 120
-    say("Divine Ballad")     -- Level 300
-    say("Resonance")         -- Level 800
-    say("Accelerando")       -- Level 1600
-    say("Double Chord")      -- Level 2500
-    say("Triad")             -- Level 3100
+  say("Accelerando")       -- Level 1600
+  say("Resonance")         -- Level 800
+  say("Divine Ballad")     -- Level 300
+  say("Crescendo")         -- Level 120
+  say("Magic String")      -- Level 65
+  say("Reverberate")       -- Level 25
+  say("Music Strike")      -- Level 8
+
   end
 end)
 
