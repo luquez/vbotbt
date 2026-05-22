@@ -57,6 +57,7 @@ end)
 
 
 UI.Separator()
+UI.Separator()
 
 lblInfo = UI.Label("")
 lblInfo = UI.Label("Heal")
@@ -64,39 +65,39 @@ lblInfo:setColor("blue")
 
 UI.Separator()
 
--- MAGIC RESTORATION (1200)
-macro(1000, "Magic Restoration", function()
-  if isInPz() then return end
-  if manapercent() <= 97 then
-    say("Magic Restoration")
-  end
-end)
 
-UI.Separator()
-
--- MANA HEAL (150)
-
-macro(1000, "Magic Infusion", function()
-  if isInPz() then return end
-  if manapercent() <= 97 then
-    say("Magic Infusion")
+local healingSpell = "Intense Wound Cleansing"
+local healthPercent = 97
+macro(200, "Intense Wound Cleansing", function()
+  if isInPz() then return end   
+  if hppercent() <= healthPercent then
+    say(healingSpell)
   end
 end)
 
 UI.Separator()
 
 
+local healingSpell = "Limb Restoration"
+local healthPercent = 97
+macro(200, "Limb Restoration", function()
+  if isInPz() then return end   
+  if hppercent() <= healthPercent then
+    say(healingSpell)
+  end
+end)
+
 UI.Separator()
+
 
 lblInfo = UI.Label("")
-lblInfo = UI.Label("Potiiion")
+lblInfo = UI.Label("Potion")
 lblInfo:setColor("blue")
 addSeparator()
-addSeparator()
-Panels.ManaItem()
+Panels.HealthItem()
 UI.Separator()
 
-local potId = 23373  -- ID da potion
+local potId = 7643  -- ID da potion
 local interval = 500  -- 0.5s
 
 macro(interval, "Pot Craft SPAM", function()
@@ -105,17 +106,7 @@ end)
 
 UI.Separator()
 
-local potLow = 23373       -- ultimate mana
-local potMid = 24937      -- dracula
 
-macro(200, "Dual POT", function()
-  local mana = manapercent()
-  if mana <= 70 then
-    usewith(potLow, player)
-  elseif mana <= 95 then
-    usewith(potMid, player)
-  end
-end)
 
 macro(10000, "FOOD", function()
   if player:getRegenerationTime() > 400 then return end
