@@ -114,7 +114,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
                     
         }
 
-        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true, Harmonic=true}
+        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true, Har=true}
 
         storage.luqueClassByChar = storage.luqueClassByChar or {}
 
