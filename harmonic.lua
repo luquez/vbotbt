@@ -37,9 +37,9 @@ UI.Separator()
 UI.Separator()
 
 -- Buff 1: Void
-macro(8000, "Buff Druid", function()
+macro(8000, "Buff Bardo", function()
   if not isInPz() then
-    say("Nature Regen") -- magia do buff
+    say("Echo Song") -- magia do buff
   end
 end)  -- 🔹 fecha macro Buff Void
 
