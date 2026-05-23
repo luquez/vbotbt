@@ -64,6 +64,64 @@ end)
 
 UI.Separator()
 
+UI.Separator()
+-------------------------
+-- NODE COLLECTOR 1 (minério)
+-------------------------
+local itemIds1 = { 32100, 32101, 32080, 32102, 32093, 37958, 37962, 37964, 43516 } -- lista de IDs aceitos
+local radius1 = 2
+local itemVisible1 = false
+local forceTime1 = 0
+
+local function isTargetId(id, list)
+  for _, v in ipairs(list) do
+    if v == id then
+      return true
+    end
+  end
+  return false
+end
+
+macro(500, "Mine perto", function()
+  local foundItem = false
+
+  for x = -radius1, radius1 do
+    for y = -radius1, radius1 do
+      local tile = g_map.getTile({x = posx() + x, y = posy() + y, z = posz()})
+      if tile then
+        for _, thing in ipairs(tile:getThings()) do
+          if isTargetId(thing:getId(), itemIds1) then
+            use(thing)
+            foundItem = true
+          end
+        end
+      end
+    end
+  end
+
+  if foundItem and CaveBot.isOn() then
+    CaveBot.setOn(false)
+    itemVisible1 = true
+    forceTime1 = now + 10000
+    print("[Node Collector Multi-ID] Node detectado → CaveBot pausado")
+  end
+
+  if not foundItem and itemVisible1 then
+    CaveBot.setOn(true)
+    itemVisible1 = false
+    print("[Node Collector Multi-ID] Node sumiu → CaveBot reativado")
+  end
+
+  if forceTime1 > 0 and now >= forceTime1 then
+    CaveBot.setOn(true)
+    itemVisible1 = false
+    forceTime1 = 0
+    print("[Node Collector Multi-ID] Timeout → CaveBot ON forçado")
+  end
+end)
+
+UI.Separator()
+
 -------------------------
 -- NODE COLLECTOR 2 (plantas)
 -------------------------
