@@ -198,7 +198,7 @@ local function isTargetId(id, list)
   return false
 end
 
-macro(500, "Plantas", function()
+macro(500, "Plantas PERTO", function()
   local foundItem = false
 
   for x = -radius1, radius1 do
@@ -314,7 +314,7 @@ local function isTargetId(id, list)
   return false
 end
 
-macro(500, "Arvores", function()
+macro(500, "Arvores PERTO", function()
   local foundItem = false
 
   for x = -radius1, radius1 do
