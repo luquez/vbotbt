@@ -25,7 +25,14 @@ end)
 UI.Separator()
 
 -- Buff 1: War
-macro(16000, "Buff DK", function()
+macro(10000, "Buff DK", function()
+  if not isInPz() then
+    say("Overflow") -- magia do buff
+  end
+end)  -- 🔹 
+
+-- Buff 1: War
+macro(5000, "Buff DK", function()
   if not isInPz() then
     say("Overflow") -- magia do buff
   end
@@ -35,7 +42,7 @@ UI.Separator()
 
 local healingSpell = "Open Wounds"
 local healthPercent = 100
-macro(200, "Open Wounds", function()
+macro(1500, "Open Wounds", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
