@@ -106,7 +106,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             
             { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Har",            url = URL_HAR, color = "green" },
-            { name = "Soul_Reaper",     url = URL_SOULREAPER,  color = "green" }
+            { name = "Soul_Reaper",     url = URL_SOULREAPER,  color = "green" },
             { name = "Druid",            url = URL_DRUID, color = "green" },        
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
