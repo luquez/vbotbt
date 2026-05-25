@@ -96,13 +96,3 @@ macro(200, "Auto Haste", function()
 
   say("Haste")                     -- lança a spell
 end)
-
-
--- upda / down
-onKeyPress(function(keys)
-  if keys == "Space" then
-    say('levitate "up') 
-    say('levitate "down') 
-  end
-end)
-UI.Sepa
