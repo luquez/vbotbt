@@ -16,6 +16,7 @@ local URL_MAIN    = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
 local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
 
+LOCAL URL_SOULREAPER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/soulreaper.lua"
 local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/wiz.lua"
 local URL_HAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/harmonic.lua"
 local URL_DRUID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/druid.lua"
@@ -105,6 +106,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             
             { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Har",            url = URL_HAR, color = "green" },
+            { name = "Soul_Reaper",     url = URL_SOULREAPER,  color = "green" }
             { name = "Druid",            url = URL_DRUID, color = "green" },        
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
@@ -114,7 +116,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
                     
         }
 
-        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true, Har=true}
+        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true, Har=true, Soul_Reaper=true}
 
         storage.luqueClassByChar = storage.luqueClassByChar or {}
 
@@ -185,4 +187,13 @@ schedule(3000, function()
     sendUsagePing()
 end)
 
+
+-- upda / down
+onKeyPress(function(keys)
+  if keys == "Space" then
+    say('levitate "up') 
+    say('levitate "down') 
+  end
+end)
+UI.Sepa
 
