@@ -187,13 +187,3 @@ schedule(3000, function()
     sendUsagePing()
 end)
 
-
--- upda / down
-onKeyPress(function(keys)
-  if keys == "Space" then
-    say('levitate "up') 
-    say('levitate "down') 
-  end
-end)
-UI.Sepa
-
