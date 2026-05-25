@@ -33,6 +33,17 @@ end)  -- 🔹
 
 UI.Separator()
 
+local healingSpell = "Intense Wound Cleansing"
+local healthPercent = 97
+macro(200, "Intense Wound Cleansing", function()
+  if isInPz() then return end   
+  if hppercent() <= healthPercent then
+    say(healingSpell)
+  end
+end)
+
+UI.Separator()
+
 lblInfo = UI.Label("")
 lblInfo = UI.Label("Potion")
 lblInfo:setColor("blue")
@@ -42,16 +53,6 @@ UI.Separator()
 
 local potId = 7643  -- ID da potion
 local interval = 500  -- 0.5s
-
-lblInfo:setColor("green")
-addSeparator()
-Panels.Health()
-addSeparator()
-
-lblInfo:setColor("green")
-addSeparator()
-Panels.Health()
-addSeparator()
 
 macro(interval, "Pot Craft SPAM", function()
     usewith(potId, player)
