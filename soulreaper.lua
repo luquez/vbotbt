@@ -38,6 +38,13 @@ macro(5000, "Sacry", function()
   end
 end)  -- 🔹 
 
+-- Buff 2: War
+macro(1000, "Exeta", function()
+  if not isInPz() then
+    say("Challenge") -- magia do buff
+  end
+end)  -- 🔹 
+
 UI.Separator()
 
 local healingSpell = "Open Wounds"
