@@ -32,9 +32,9 @@ macro(10000, "Buff DK", function()
 end)  -- 🔹 
 
 -- Buff 1: War
-macro(5000, "Buff DK", function()
+macro(5000, "Sacry", function()
   if not isInPz() then
-    say("Overflow") -- magia do buff
+    say("Abyssal Sacrifice") -- magia do buff
   end
 end)  -- 🔹 
 
