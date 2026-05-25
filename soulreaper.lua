@@ -33,9 +33,9 @@ end)  -- 🔹
 
 UI.Separator()
 
-local healingSpell = "Intense Wound Cleansing"
-local healthPercent = 97
-macro(200, "Intense Wound Cleansing", function()
+local healingSpell = "Open Wounds"
+local healthPercent = 100
+macro(200, "Open Wounds", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
