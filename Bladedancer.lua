@@ -36,7 +36,7 @@ UI.Separator()
 UI.Separator()
 
 -- Buff 1: War
-macro(20000, "Buff War", function()
+macro(21000, "Buff War", function()
   if not isInPz() then
     say("Defender Spirit") -- magia do buff
   end
