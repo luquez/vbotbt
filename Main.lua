@@ -16,7 +16,7 @@ local URL_MAIN    = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
 local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
 
-local URL_BLADEDANCER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/bladedancer.lua"
+local URL_BLADEDANCER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Bladedancer.lua"
 local URL_SOULREAPER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/soulreaper.lua"
 local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/wiz.lua"
 local URL_HAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/harmonic.lua"
