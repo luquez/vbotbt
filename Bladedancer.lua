@@ -14,7 +14,6 @@ macro(200, "Combo BladeDancer", function()
   if g_game.isAttacking() then
   say("Blazing Axe")      -- Level 2500
   say("Spectral Throw")   -- Level 1600
-  say("Twin Ricochet")    -- Level 800
   say("Hundred Blades")   -- Level 300
   say("Cyclone")          -- Level 120
   say("Groundshaker")     -- Level 65
