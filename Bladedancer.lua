@@ -16,7 +16,6 @@ macro(200, "Combo BladeDancer", function()
   say("Spectral Throw")   -- Level 1600
   say("Twin Ricochet")    -- Level 800
   say("Hundred Blades")   -- Level 300
-  say("Leap Slam")        -- Level 180
   say("Cyclone")          -- Level 120
   say("Groundshaker")     -- Level 65
   say("Fast Sweep")       -- Level 25
@@ -144,3 +143,18 @@ macro(200, "Auto Haste", function()
 
   say("Haste")                     -- lança a spell
 end)
+
+
+UI.Separator()
+-- upda / down
+lblInfo= UI.Label("Para up / Down")
+lblInfo= UI.Label("Space")
+lblInfo:setColor("green")
+UI.Separator()
+onKeyPress(function(keys)
+  if keys == "Space" then
+    say('levitate "up') 
+    say('levitate "down') 
+  end
+end)
+UI.Separator()
