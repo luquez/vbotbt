@@ -36,7 +36,7 @@ UI.Separator()
 UI.Separator()
 
 -- Buff 1: War
-macro(16000, "Buff War", function()
+macro(20000, "Buff War", function()
   if not isInPz() then
     say("Defender Spirit") -- magia do buff
   end
@@ -79,7 +79,7 @@ UI.Separator()
 
 local healingSpell = "Limb Restoration"
 local healthPercent = 97
-macro(200, "Limb Restoration", function()
+macro(1000, "Limb Restoration", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
     say(healingSpell)
