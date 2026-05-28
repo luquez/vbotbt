@@ -16,6 +16,7 @@ local URL_MAIN    = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/
 local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
 local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
 
+local URL_BLADEDANCER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/bladedancer.lua"
 local URL_SOULREAPER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/soulreaper.lua"
 local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/wiz.lua"
 local URL_HAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/harmonic.lua"
@@ -104,6 +105,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
             { name = "Tools",            url = URL_TOOLS, color = "green" },
             ------
             
+            { name = "Blade",            url = URL_BLADEDANCER, color = "green" },
             { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Har",            url = URL_HAR, color = "green" },
             { name = "Soul_Reaper",     url = URL_SOULREAPER,  color = "green" },
@@ -116,7 +118,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
                     
         }
 
-        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true, Har=true, Soul_Reaper=true}
+        local classModules = { Druid=true, Guns=true, War=true, Archer=true, Wiz=true, dk=true, Har=true, Soul_Reaper=true, Blade=true }
 
         storage.luqueClassByChar = storage.luqueClassByChar or {}
 
