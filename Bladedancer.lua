@@ -20,13 +20,13 @@ macro(200, "Combo BladeDancer", function()
   end
 end)
 
-macro(23000, "Spectral Throw", function()
+macro(4000, "Spectral Throw", function()
   if not isInPz() then
     say("Spectral Throw") -- magia do buff
   end
 end)  -- 🔹 
 
-macro(22000, "Blazing Axe", function()
+macro(3000, "Blazing Axe", function()
   if not isInPz() then
     say("Blazing Axe") -- magia do buff
   end
