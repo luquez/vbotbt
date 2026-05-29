@@ -1,6 +1,6 @@
-setDefaultTab("Dancer")
+setDefaultTab("Sentinel")
 
-lblInfo= UI.Label("War - Fael Noob")
+lblInfo= UI.Label("ffe")
 lblInfo:setColor("red")
 
 UI.Separator()
@@ -10,7 +10,7 @@ local version = "1.0"
 print("[Luquebot] Classe: War carregada v" .. version)
 
 -- Combo War Sequence
-macro(200, "Combo BladeDancer", function()
+macro(200, "Combo Sentinel", function()
   if g_game.isAttacking() then
   say("Massive Hatred")   -- Level 1600
   say("Tremor Slam") 
