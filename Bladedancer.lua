@@ -12,8 +12,6 @@ print("[Luquebot] Classe: War carregada v" .. version)
 -- Combo War Sequence
 macro(200, "Combo BladeDancer", function()
   if g_game.isAttacking() then
-  say("Blazing Axe")      -- Level 2500
-  say("Spectral Throw")   -- Level 1600
   say("Hundred Blades")   -- Level 300
   say("Cyclone")          -- Level 120
   say("Groundshaker")     -- Level 65
@@ -22,7 +20,17 @@ macro(200, "Combo BladeDancer", function()
   end
 end)
 
+macro(23000, "Spectral Throw", function()
+  if not isInPz() then
+    say("Spectral Throw") -- magia do buff
+  end
+end)  -- 🔹 
 
+macro(22000, "Blazing Axe", function()
+  if not isInPz() then
+    say("Blazing Axe") -- magia do buff
+  end
+end)  -- 🔹 
 
 UI.Separator()
 
@@ -78,7 +86,7 @@ UI.Separator()
 
 
 local healingSpell = "Limb Restoration"
-local healthPercent = 97
+local healthPercent = 100
 macro(1000, "Limb Restoration", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
