@@ -104,6 +104,12 @@ addSeparator()
 Panels.HealthItem()
 UI.Separator()
 
+lblInfo:setColor("blue")
+addSeparator()
+addSeparator()
+Panels.ManaItem()
+UI.Separator()
+
 local potId = 7643  -- ID da potion
 local interval = 500  -- 0.5s
 
