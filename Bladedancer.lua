@@ -32,6 +32,13 @@ macro(3000, "Blazing Axe", function()
   end
 end)  -- 🔹 
 
+macro(5000, "Titan Spin", function()
+  if not isInPz() then
+    say("Blazing Axe") -- magia do buff
+  end
+end)  -- 🔹 
+
+
 UI.Separator()
 
 -- Buff 1: Guns
