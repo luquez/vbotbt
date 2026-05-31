@@ -20,6 +20,14 @@ macro(200, "Combo BladeDancer", function()
   end
 end)
 
+macro(200, "Lancerss", function()
+  if g_game.isAttacking() then
+    say("Titan Spin")
+    say("Blazing Axe")
+    say("Spectral Throw")
+  end
+end)
+      
 macro(4000, "Spectral Throw", function()
   if not isInPz() then
     say("Spectral Throw") -- magia do buff
