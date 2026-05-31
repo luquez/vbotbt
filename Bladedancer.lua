@@ -34,7 +34,7 @@ end)  -- 🔹
 
 macro(5000, "Titan Spin", function()
   if not isInPz() then
-    say("Blazing Axe") -- magia do buff
+    say("Titan Spin") -- magia do buff
   end
 end)  -- 🔹 
 
