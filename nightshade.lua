@@ -1,6 +1,6 @@
 setDefaultTab("Night")
 
-lblInfo= UI.Label("")
+lblInfo= UI.Label("HASH DA o bum")
 lblInfo:setColor("red")
 
 UI.Separator()
@@ -10,15 +10,15 @@ local version = "1.0"
 print("[Luquebot] Classe: Rogue carregada v" .. version)
 
 -- Combo War Sequence
-macro(200, "Combo Death", function()
+macro(200, "Combo Night", function()
   if g_game.isAttacking() then
+    say("Death Fluid")
+    say("Imbue Poison")
     say("Death Mark")
     say("Death Spiral")
     say("Shadowy Blades")
     say("Spread Infection")
-    say("Infected Blade")
-    say("Death Fluid")
-    say("Imbue Poison")
+    say("Infected Blade")    
     say("Poison Bomb")
   end
 end)
