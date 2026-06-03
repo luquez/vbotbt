@@ -27,6 +27,7 @@ macro(200, "ShadowBlades", function()
   if g_game.isAttacking() then
     say("Shadowy Blades")
     say("Death Fluid")
+    say("Death Mark")
     say("Imbue Poison")
     say("Death Mark")
     say("Death Spiral")
