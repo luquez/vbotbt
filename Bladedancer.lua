@@ -101,7 +101,7 @@ UI.Separator()
 
 
 local healingSpell = "Limb Restoration"
-local healthPercent = 100
+local healthPercent = 99
 macro(1000, "Limb Restoration", function()
   if isInPz() then return end   
   if hppercent() <= healthPercent then
