@@ -10,16 +10,17 @@ local version = "1.0"
 print("[Luquebot] Classe: Rogue carregada v" .. version)
 
 -- Combo War Sequence
-macro(200, "Combo Death Death", function()
+macro(200, "Combo Fluid  ++", function()
   if g_game.isAttacking() then
     say("Death Fluid")
-    say("Imbue Poison")
-    say("Death Mark")
-    say("Death Spiral")
     say("Shadowy Blades")
+    say("Imbue Poison")
+    say("Death Spiral")
+    say("Death Mark")
     say("Spread Infection")
-    say("Infected Blade")    
-    say("Poison Bomb")
+    say("Infected Blade")
+    say("Poison Bomb") 
+
   end
 end)
 
