@@ -163,6 +163,19 @@ macro(10000, "FOOD", function()
   end
 end)
 
+macro(10000, "FOOD - Passe", function()
+  if player:getRegenerationTime() > 400 then return end
+
+  for _, container in pairs(g_game.getContainers()) do
+    for _, item in ipairs(container:getItems()) do
+      if item:getId() == 30607 then
+        return modules._G.g_blacktalon.use(item)
+      end
+    end
+  end
+end)
+
+
 macro(200, "Auto Haste", function()
   if isInPz() then return end          -- não usa em PZ
   if hasHaste() then return end        -- já tem haste ativo
