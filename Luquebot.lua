@@ -480,7 +480,7 @@ UI.Separator()
 
 ---
 
-local effectsIds = {193, 2}
+local effectsIds = {193, 2, 572}
 local walkingToEffect = false
 
 local ir = macro(100, "Pegar Orb", function() end)
