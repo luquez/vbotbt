@@ -126,7 +126,7 @@ UI.Separator()
 -- NODE COLLECTOR 2 (Arvores)
 -------------------------
 
-local itemIds1 = {37945,32144,37947,37985,37948,37946,37978,41143,52728} -- lista de IDs aceitos
+local itemIds1 = {37945,32144,37947,37985,37948,37946,37978,41143,52726} -- lista de IDs aceitos
 -- 
 local radius1 = 6
 local itemVisible1 = false
