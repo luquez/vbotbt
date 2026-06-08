@@ -10,7 +10,7 @@ UI.Separator()
 -------------------------
 -- NODE COLLECTOR 1 (minério)
 -------------------------
-local itemIds1 = { 32100, 32101, 32080, 32102, 32093, 37958, 37962, 37964, 43516 } -- lista de IDs aceitos
+local itemIds1 = { 32100, 32101, 32080, 32102, 32093, 37958, 37962, 37964, 43516, 52727 } -- lista de IDs aceitos
 local radius1 = 6
 local itemVisible1 = false
 local forceTime1 = 0
