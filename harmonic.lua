@@ -30,16 +30,18 @@ UI.Separator()
 
 macro(200, "Combo - ++", function()
   if g_game.isAttacking() then
-  say("Triad")
-  say("Accelerando")       -- Level 1600
-  say("Double Chord")
-  say("Resonance")         -- Level 800
-  say("Divine Ballad")     -- Level 300
-  say("Crescendo")         -- Level 120
-  say("Magic String")      -- Level 65
+    say("Triad")
+    say("Accelerando")
+    say("Double Chord")
+    say("Resonance")
+    say("Divine Ballad")
+    say("Crescendo")
+    say("Magic String")
+  end
+end)
 
+UI.Separator()
 
-      UI.Separator()
 -- Buff 1: Void
 --macro(7000, "Voidwalking", function()
 --  if not isInPz() then
@@ -47,10 +49,9 @@ macro(200, "Combo - ++", function()
 --  end
 --end)  -- 🔹 fecha macro Buff Void
 
-UI.Separator()
 
 -- Buff 1: Void
-macro(8000, "Buff Bardo", function()
+macro(6000, "Buff Bardo", function()
   if not isInPz() then
     say("Echo Song") -- magia do buff
   end
