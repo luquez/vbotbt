@@ -28,6 +28,18 @@ end)
 
 UI.Separator()
 
+macro(200, "Combo - ++", function()
+  if g_game.isAttacking() then
+  say("Accelerando")       -- Level 1600
+  say("Triad")
+  say("Double Chord")
+  say("Resonance")         -- Level 800
+  say("Divine Ballad")     -- Level 300
+  say("Crescendo")         -- Level 120
+  say("Magic String")      -- Level 65
+
+
+      UI.Separator()
 -- Buff 1: Void
 --macro(7000, "Voidwalking", function()
 --  if not isInPz() then
