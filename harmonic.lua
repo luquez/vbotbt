@@ -165,3 +165,8 @@ onKeyPress(function(keys)
   end
 end)
 UI.Separator()
+
+hotkey("F12", function()
+  SelectWindow.select("normal")
+  return true
+end)
