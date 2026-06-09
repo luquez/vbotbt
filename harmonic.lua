@@ -30,8 +30,8 @@ UI.Separator()
 
 macro(200, "Combo - ++", function()
   if g_game.isAttacking() then
-  say("Accelerando")       -- Level 1600
   say("Triad")
+  say("Accelerando")       -- Level 1600
   say("Double Chord")
   say("Resonance")         -- Level 800
   say("Divine Ballad")     -- Level 300
