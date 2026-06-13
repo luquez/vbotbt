@@ -546,3 +546,159 @@ macro(300, "Auto Enter DG (debug)", function()
     end
   end
 end)
+
+
+
+-- Tower
+
+lblInfo= UI.Label("Tower")
+lblInfo:setColor("green")
+
+onKeyPress(function(keys)
+  if keys == "3" then
+    say('!nextwave') 
+    say('!nextfloor') 
+  end
+end)
+UI.Separator()
+local tower54Stop = {
+  detected = false,
+  completedSeen = false,
+  currentFloor = 1
+}
+
+local autoTowerMacro = macro(500, "Auto Tower", function()
+    if tower54Stop.detected then return end
+    say("!nextwave")
+    say("!nextfloor")
+end)
+
+local function stopLuqueAutoTower(reason)
+  if tower54Stop.detected then return end
+  tower54Stop.detected = true
+
+  if autoTowerMacro and autoTowerMacro.setOff then
+    autoTowerMacro:setOff()
+  elseif autoTowerMacro and autoTowerMacro.setOn then
+    autoTowerMacro:setOn(false)
+  end
+
+  warn("[Auto Tower] Desligado no andar 54" .. (reason and (" (" .. reason .. ")") or ""))
+end
+
+local function textHasTowerFloor54(text)
+  text = tostring(text or ""):lower()
+  return text:find("floor%s*54") or
+         text:find("andar%s*54") or
+         text:find("tower%s*54") or
+         text:find("54%s*floor") or
+         text:find("54%s*andar")
+end
+
+local function getWidgetText(widget)
+  if not widget or not widget.getText then return "" end
+  local ok, text = pcall(function() return widget:getText() end)
+  return ok and tostring(text or "") or ""
+end
+
+local function isTowerMissionComplete(mission)
+  if not mission then return false end
+  local value = getWidgetText(mission:recursiveGetChildById("value"))
+  local progress, required = value:match("(%d+)%s*/%s*(%d+)")
+  progress, required = tonumber(progress), tonumber(required)
+  return progress and required and required > 0 and progress >= required
+end
+
+local function areTowerMissionsComplete(tracker)
+  local list = tracker and tracker:recursiveGetChildById("missionList")
+  if not list or not list.getChildren then return false end
+
+  local missions = list:getChildren()
+  if not missions or #missions == 0 then return false end
+
+  for _, mission in ipairs(missions) do
+    if not isTowerMissionComplete(mission) then
+      return false
+    end
+  end
+
+  return true
+end
+
+onTextMessage(function(mode, text)
+  if textHasTowerFloor54(text) then
+    tower54Stop.currentFloor = 54
+    stopLuqueAutoTower("mensagem")
+  end
+end)
+
+macro(500, "Stop Tower 54", function()
+  if tower54Stop.detected then
+    local autoTowerOn = autoTowerMacro and autoTowerMacro.isOn and autoTowerMacro:isOn()
+    if not autoTowerOn then return end
+    tower54Stop.detected = false
+    tower54Stop.completedSeen = false
+    tower54Stop.currentFloor = 1
+  end
+
+  if AutoTower and tonumber(AutoTower.currentFloor) == 54 then
+    stopLuqueAutoTower("AutoTower.currentFloor")
+    return
+  end
+
+  local root = g_ui and g_ui.getRootWidget and g_ui.getRootWidget()
+  if not root or not root.recursiveGetChildById then return end
+
+  local tracker = root:recursiveGetChildById("customTracker")
+  if not tracker or (tracker.isVisible and not tracker:isVisible()) then return end
+
+  local title = tracker:recursiveGetChildById("title")
+  local titleText = getWidgetText(title):lower()
+  if not titleText:find("tower arena", 1, true) then return end
+
+  local description = tracker:recursiveGetChildById("description")
+  local descText = getWidgetText(description)
+  if textHasTowerFloor54(descText) then
+    tower54Stop.currentFloor = 54
+    stopLuqueAutoTower("tracker")
+    return
+  end
+
+  if areTowerMissionsComplete(tracker) then
+    if not tower54Stop.completedSeen then
+      tower54Stop.completedSeen = true
+      if tower54Stop.currentFloor >= 54 then
+        stopLuqueAutoTower("tracker completo")
+      else
+        tower54Stop.currentFloor = tower54Stop.currentFloor + 1
+      end
+    end
+  else
+    tower54Stop.completedSeen = false
+  end
+end)
+UI.Separator()
+
+lblInfo= UI.Label("Utilidades")
+lblInfo:setColor("green")
+
+local itemId = 41656
+local radius = 7 -- distância do personagem (1 sqm em volta)
+
+macro(500, "Auto Chest - Rift", function()
+  for x = -radius, radius do
+    for y = -radius, radius do
+      local tile = g_map.getTile({x = posx() + x, y = posy() + y, z = posz()})
+      if tile then
+        for _, thing in ipairs(tile:getThings()) do
+          if thing:getId() == itemId then
+            use(thing)
+            return
+          end
+        end
+      end
+    end
+  end
+end)
+
+UI.Separator()
