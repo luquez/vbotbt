@@ -112,6 +112,28 @@ end)
 
 UI.Separator()
 
+local spell = "Crescendo"
+
+macro(1000, "Crescendo - Buff", function()
+    local target = g_game.getAttackingCreature()
+    if not target then
+        say(spell)
+    end
+end)
+
+UI.Separator()
+
+local spell = "Divine Ballad"
+
+macro(1000, "Def - Buff", function()
+    local target = g_game.getAttackingCreature()
+    if not target then
+        say(spell)
+    end
+end)
+
+UI.Separator()
+
 macro(10000, "FOOD", function()
   if player:getRegenerationTime() > 400 then return end
 
