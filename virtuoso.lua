@@ -116,6 +116,20 @@ end)
 
 UI.Separator()
 
+UI.Separator()
+
+local potLow = 23373       -- ultimate mana
+local potMid = 24937      -- dracula
+
+macro(200, "Dual POT", function()
+  local mana = manapercent()
+  if mana <= 70 then
+    usewith(potLow, player)
+  elseif mana <= 95 then
+    usewith(potMid, player)
+  end
+end)
+
 
 
 macro(10000, "FOOD", function()
