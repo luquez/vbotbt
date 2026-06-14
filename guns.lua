@@ -12,6 +12,7 @@ print("[Luquebot] Classe: Guns carregada v" .. version)
 -- Combo Void Sequence
 macro(200, "Combo Guns", function()
   if g_game.isAttacking() then
+    say("Ghost Hands")
     say("Gun Kata")
     say("Bullseye")
     say("Heavy Artillery")
