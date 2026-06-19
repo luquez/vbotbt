@@ -48,6 +48,14 @@ end)
 
 UI.Separator()
 
+macro(3000, "Sleep", function()
+  if not isInPz() then
+    say("Lullaby")
+  end
+end)
+
+UI.Separator()
+
 local spell = "Mana Waste"
 local manaMin = 20
 local interval = 3000
