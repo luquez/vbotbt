@@ -122,7 +122,7 @@ UI.Separator()
 
 local spell = "Crescendo"
 
-macro(1000, "Crescendo - Buff", function()
+macro(5000, "Crescendo - Buff", function()
     local target = g_game.getAttackingCreature()
     if not target then
         say(spell)
@@ -133,7 +133,7 @@ UI.Separator()
 
 local spell = "Divine Ballad"
 
-macro(1000, "Def - Buff", function()
+macro(5000, "Def - Buff", function()
     local target = g_game.getAttackingCreature()
     if not target then
         say(spell)
