@@ -50,7 +50,90 @@ macro(200, "Bardo Buffs", function()
   end
 end)
 
+UI.Separator()
 
+local globalExhaust = 2000
+local lastCast = 0
+
+local buffs = {
+  {name = "Accelerando",  duration = 11000, refreshBefore = 2400, priority = 1, last = 0},
+  {name = "Triad",        duration = 7500,  refreshBefore = 900,  priority = 2, last = 0},
+  {name = "Double Chord", duration = 6000,  refreshBefore = 900,  priority = 3, last = 0},
+  {name = "Resonance",    duration = 6200,  refreshBefore = 900,  priority = 4, last = 0},
+
+  -- Stack buffs
+  {name = "Divine Ballad", duration = 30000, refreshBefore = 4000, priority = 5, last = 0, stacks = 0, maxStacks = 5},
+  {name = "Crescendo",     duration = 30000, refreshBefore = 4000, priority = 6, last = 0, stacks = 0, maxStacks = 5},
+}
+
+local function expiresAt(buff)
+  if buff.last == 0 then
+    return 0
+  end
+  return buff.last + buff.duration
+end
+
+local function needsRefresh(buff)
+  if buff.last == 0 then
+    return true
+  end
+
+  if buff.maxStacks and buff.stacks < buff.maxStacks then
+    return true
+  end
+
+  return now >= expiresAt(buff) - buff.refreshBefore
+end
+
+local function castBuff(buff)
+  say(buff.name)
+  buff.last = now
+  lastCast = now
+
+  if buff.maxStacks and buff.stacks < buff.maxStacks then
+    buff.stacks = buff.stacks + 1
+  end
+end
+
+macro(100, "Bardo Buffs", function()
+  if isInPz() then return end
+  if now - lastCast < globalExhaust then return end
+
+  local accelerando = buffs[1]
+
+  -- Accelerando sempre prioridade máxima.
+  if needsRefresh(accelerando) then
+    castBuff(accelerando)
+    return
+  end
+
+  -- Reserva exhaust para Accelerando.
+  local timeToAccelerando = expiresAt(accelerando) - now
+  if timeToAccelerando <= globalExhaust + 500 then
+    return
+  end
+
+  local best = nil
+
+  for i = 2, #buffs do
+    local buff = buffs[i]
+
+    if needsRefresh(buff) then
+      if not best then
+        best = buff
+      elseif buff.priority < best.priority then
+        best = buff
+      end
+    end
+  end
+
+  if best then
+    castBuff(best)
+  end
+end)
+
+
+UI.Separator()
 
 macro(8000, "Buff Bardo", function()
   if not isInPz() then
