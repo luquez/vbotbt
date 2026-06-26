@@ -45,8 +45,8 @@ macro(200, "Bardo Buffs", function()
     say("Triad")
     say("Double Chord")
     say("Resonance")         -- Level 800
-    say("Divine Ballad")     -- Level 300
-    say("Crescendo")         -- Level 120
+--    say("Divine Ballad")     -- Level 300
+--    say("Crescendo")         -- Level 120
   end
 end)
 
@@ -60,6 +60,14 @@ end)
 
 UI.Separator()
 
+
+macro(8000, "Buff Bardo - CDR", function()
+  if not isInPz() then
+    say("Echo Song")
+  end
+end)
+
+UI.Separator()
 macro(3000, "Sleep", function()
   if not isInPz() then
     say("Lullaby")
