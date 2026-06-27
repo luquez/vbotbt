@@ -253,17 +253,14 @@ end)
 
 UI.Separator()
 
-macro(200, "Combo - ++", function()
-  if g_game.isAttacking() then
-    HarmonicBardTryCastList({
-      "Accelerando",
-      "Triad",
-      "Double Chord",
-      "Resonance",
-      "Divine Ballad",
-      "Crescendo",
-      "Magic String"
-    })
+macro(200, "BTest", function()
+  if not isInPz() then
+    say("Accelerando")
+    say("Triad")
+    say("Double Chord")
+    say("Resonance")
+    say("Divine Ballad")
+    say("Crescendo")
   end
 end)
 
