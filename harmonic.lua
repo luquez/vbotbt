@@ -233,7 +233,6 @@ UI.Separator()
 --------
 -----
 --
--
 
 
 macro(200, "Combo - Harmonic", function()
