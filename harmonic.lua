@@ -9,13 +9,20 @@ local version = "1.0"
 print("[Luquebot] Classe: Harmonic carregada v" .. version)
 
 
+
+
 UI.Separator()
 
 HarmonicBardCooldownEnds = HarmonicBardCooldownEnds or {}
 HarmonicBardLastCast = HarmonicBardLastCast or 0
+HarmonicBardLastAccelerando = HarmonicBardLastAccelerando or 0
+HarmonicBardLastAccelerandoTry = HarmonicBardLastAccelerandoTry or 0
+HarmonicBardAccelerandoDuration = 11000
+HarmonicBardAccelerandoReserve = 3500
+HarmonicBardAccelerandoRetry = 600
 HarmonicBardStackState = HarmonicBardStackState or {
-  ["Divine Ballad"] = {stacks = 0, last = 0},
-  ["Crescendo"] = {stacks = 0, last = 0}
+  ["Divine Ballad"] = {stacks = 0, last = 0, renewEvery = 26000, resetAfter = 36000},
+  ["Crescendo"] = {stacks = 0, last = 0, renewEvery = 26000, resetAfter = 36000}
 }
 HarmonicBardStackOrder = {"Divine Ballad", "Crescendo"}
 
@@ -67,19 +74,62 @@ function HarmonicBardCanCast(spell)
   return true
 end
 
+function HarmonicBardGroupReady(spell)
+  local data = HarmonicBardSpellData(spell)
+  if not data then return true end
+
+  for groupId, _ in pairs(data.group or {}) do
+    if modules.game_cooldown.isGroupCooldownIconActive(groupId) then
+      return false
+    end
+  end
+
+  return true
+end
+
+function HarmonicBardAccelerandoCritical()
+  if HarmonicBardLastAccelerando == 0 then return true end
+  return now - HarmonicBardLastAccelerando >= HarmonicBardAccelerandoDuration - HarmonicBardAccelerandoReserve
+end
+
 function HarmonicBardCast(spell)
   say(spell)
   HarmonicBardLastCast = now
 
+  if spell == "Accelerando" then
+    HarmonicBardLastAccelerando = now
+    HarmonicBardLastAccelerandoTry = now
+  end
+
   local stack = HarmonicBardStackState[spell]
   if stack then
     stack.last = now
+    stack.renewEvery = stack.renewEvery or 26000
+    stack.resetAfter = stack.resetAfter or 36000
     if stack.stacks < 5 then
       stack.stacks = stack.stacks + 1
     end
   end
 
   return true
+end
+
+function HarmonicBardStackNeedsCast(spell)
+  local state = HarmonicBardStackState[spell]
+  if not state then return false end
+
+  state.renewEvery = state.renewEvery or 26000
+  state.resetAfter = state.resetAfter or 36000
+
+  if state.last > 0 and now - state.last >= state.resetAfter then
+    state.stacks = 0
+  end
+
+  if state.stacks < 5 then
+    return true
+  end
+
+  return now - state.last >= state.renewEvery
 end
 
 function HarmonicBardTryCast(spell)
@@ -90,7 +140,21 @@ function HarmonicBardTryCast(spell)
   return false
 end
 
+function HarmonicBardForceAccelerando()
+  if not HarmonicBardAccelerandoCritical() then return false end
+  if not HarmonicBardGroupReady("Accelerando") then return true end
+  if now - HarmonicBardLastAccelerandoTry < HarmonicBardAccelerandoRetry then return true end
+
+  say("Accelerando")
+  HarmonicBardLastCast = now
+  HarmonicBardLastAccelerandoTry = now
+
+  return true
+end
+
 function HarmonicBardTryCastList(spells)
+  if HarmonicBardForceAccelerando() then return true end
+
   for _, spell in ipairs(spells) do
     if HarmonicBardTryCast(spell) then return true end
   end
@@ -104,28 +168,73 @@ if onSpellCooldown then
   end)
 end
 
+onTalk(function(name, level, mode, text, channelId, pos)
+  if name ~= player:getName() then return end
+  if type(text) ~= "string" then return end
+
+  if text:lower() == "accelerando" then
+    HarmonicBardLastAccelerando = now
+    HarmonicBardLastAccelerandoTry = now
+  end
+end)
+
 macro(50, "Bardo Buffs", function()
   if isInPz() then return end
   if now - HarmonicBardLastCast < 100 then return end
 
+  -- Accelerando always wins. The real cooldown icon decides if it is ready.
   if HarmonicBardTryCast("Accelerando") then return end
+  if HarmonicBardForceAccelerando() then return end
 
+  -- If Accelerando is about to be ready, do not spend the 2s global exhaust.
   local accelerandoLeft = HarmonicBardCooldownLeft("Accelerando")
   if accelerandoLeft > 0 and accelerandoLeft <= 2300 then return end
+  if HarmonicBardAccelerandoCritical() then return end
 
   if HarmonicBardTryCast("Triad") then return end
   if HarmonicBardTryCast("Double Chord") then return end
   if HarmonicBardTryCast("Resonance") then return end
 
   for _, spell in ipairs(HarmonicBardStackOrder) do
-    local state = HarmonicBardStackState[spell]
-    if state.stacks < 5 or now - state.last >= 30000 then
+    if HarmonicBardStackNeedsCast(spell) then
       if HarmonicBardTryCast(spell) then return end
     end
   end
 end)
 
 UI.Separator()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------
+------------------
+------------
+--------
+-----
+--
+-
+
 
 macro(200, "Combo - Harmonic", function()
   if g_game.isAttacking() then
