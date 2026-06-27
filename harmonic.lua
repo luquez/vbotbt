@@ -159,23 +159,6 @@ macro(200, "Combo - ++", function()
   end
 end)
 
-
-
-UI.Separator()
-
-macro(200, "Bardo Buffs", function()
-  if not isInPz() then
-    bardTryCastList({
-      "Accelerando",   -- Level 1600
-      "Triad",
-      "Double Chord",
-      "Resonance",     -- Level 800
-      "Divine Ballad", -- Level 300
-      "Crescendo"      -- Level 120
-    })
-  end
-end)
-
 UI.Separator()
 
 macro(8000, "Buff Bardo", function()
