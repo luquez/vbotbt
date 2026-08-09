@@ -173,7 +173,7 @@ HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
 
         UI.Separator()
         UI.Label("Bot by LichKing"):setColor("yellow")
-        UI.Label("Nova versao saindo amanha sera necessario atualizar a pasta."):setColor("yellow")
+        UI.Label("Hue Hue"):setColor("yellow")
     end)
 end)
 
