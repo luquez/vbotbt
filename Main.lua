@@ -14,16 +14,16 @@
             { name = "Tools",            url = URL_TOOLS, color = "green" },
             ------
             
-            { name = "Blade",            url = URL_BLADEDANCER, color = "green" },
-            { name = "Abyss Guard",      url = URL_ABYSSAL_GUARD, color = "green" },
+            { name = "Blade",            url = URL_BLADEDANCER, color = "green" }, 
+            { name = "Abyss Guard",            url = URL_ABYSSAL_GUARD, color = "green" }, 
                     
             { name = "Night", url = URL_NIGHT, color = "green" },
             { name = "Sentinel", url = URL_SENTINEL, color = "green" },
             { name = "Wiz",            url = URL_WIZ, color = "green" },
             { name = "Har",            url = URL_HAR, color = "green" },
-            { name = "Virtuoso",        url = URL_VIRTU, color = "green" },
+            { name = "Virtuoso",        url = URL_VIRTU, color = "green" },   
             { name = "Soul_Reaper",     url = URL_SOULREAPER,  color = "green" },
-            { name = "Druid",            url = URL_DRUID, color = "green" },
+            { name = "Druid",            url = URL_DRUID, color = "green" },        
             { name = "Guns",            url = URL_GUNS, color = "green" },
             { name = "War",             url = URL_WAR,  color = "green" },
             { name = "Archer",          url = URL_ARCHER,  color = "green" },
