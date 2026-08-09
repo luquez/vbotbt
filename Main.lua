@@ -1,3 +1,99 @@
+-- =============================================
+-- 🌐 LuqueBot Main - Modular + Version Check (Stable)
+-- =============================================
+
+local localVersion = "1.0"
+local remoteVersion
+
+print("[LuqueBot] 🔍 Verificando versão... (local " .. localVersion .. ")")
+
+-- =============================================
+-- 🔎 URLs
+-- =============================================
+local URL_VERSION = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/version.txt"
+local URL_MAIN    = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Main.lua"
+
+local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Luquebot.lua"
+local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
+
+
+local URL_ABYSSAL_GUARD = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/abyss_guard.lua"
+local URL_BLADEDANCER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Bladedancer.lua"
+local URL_SENTINEL = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Sentinel.lua"
+local URL_NIGHT = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/nightshade.lua"
+local URL_SOULREAPER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/soulreaper.lua"
+local URL_WIZ = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/wiz.lua"
+local URL_HAR = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/harmonic.lua"
+local URL_VIRTU = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/virtuoso.lua"
+local URL_DRUID = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/druid.lua"
+local URL_DK  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/dk.lua"
+local URL_GUNS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/guns.lua"
+local URL_WAR  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/war.lua"
+local URL_ARCHER  = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/archer.lua"
+
+
+-- =============================================
+-- 🧠 Execução Remota
+-- =============================================
+
+local function executeRemote(name, url, label)
+    print("[LuqueBot] 🔁 Baixando " .. name .. "...")
+    HTTP.get(url .. "?nocache=" .. os.time(), function(code, err)
+        if err then
+            print("[LuqueBot] ❌ Erro ao baixar " .. name .. ": " .. err)
+            return
+        end
+        if not code or code == "" then
+            print("[LuqueBot] ⚠️ " .. name .. " vazio ou inválido.")
+            return
+        end
+
+        local ok, res = pcall(loadstring(code))
+        if ok then
+            print("[LuqueBot]  " .. name .. " executado!")
+            if label then
+                label:setText(" " .. name .. " carregado!")
+                label:setColor("green")
+            end
+        else
+            print("[LuqueBot] ❌ Erro executando " .. name .. ": " .. tostring(res))
+        end
+    end)
+end
+
+-- =============================================
+-- 🧩 Version Check
+-- =============================================
+HTTP.get(URL_VERSION .. "?nocache=" .. os.time(), function(data, err)
+    if err then
+        print("[LuqueBot] ⚠️ Erro ao verificar versão: " .. err)
+        return
+    end
+
+    remoteVersion = data:match("%S+")
+    if not remoteVersion then
+        print("[LuqueBot] ⚠️ Versão remota inválida.")
+        return
+    end
+
+    if remoteVersion ~= localVersion then
+        print("[LuqueBot] 🔄 Nova versão detectada (" .. remoteVersion .. ")")
+
+        HTTP.get(URL_MAIN .. "?nocache=" .. os.time(), function(code)
+            local ok, res = pcall(loadstring(code))
+            if ok then print("[LuqueBot] ✅ Main atualizado!") end
+        end)
+
+        return
+    end
+
+    print("[LuqueBot] ✅ Main.lua atualizado (v" .. localVersion .. ")")
+
+    -- =============================================
+    -- 🧠 INTERFACE + BOTÕES + AUTOLOAD POR CHAR
+    -- =============================================
+    schedule(1000, function()
+
         setDefaultTab("Main")
 
         --------------------------------------------
