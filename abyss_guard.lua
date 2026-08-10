@@ -27,7 +27,6 @@ UI.Separator()
 macro(200, "Sem 2500", function()
   if g_game.isAttacking() then
 --    say("Void Rupture")
-    say("Abyssal Presence")
     say("Void Guardian")
     say("Abyssal Tear")
     say("Nether Gaze")
