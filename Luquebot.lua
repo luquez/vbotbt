@@ -179,7 +179,87 @@ macro(500, "Arvores", function()
   end
 end)
 
+
 UI.Separator()
+
+-------------------------
+-- CRYSTALS
+-------------------------
+
+-- Alien Crystal Tree collection nodes from the Auto Mark "Crystals" category.
+-- Exhausted node 53834 is intentionally excluded.
+local crystalIds = {
+  [53802] = true, [53803] = true, [53804] = true, [53805] = true, -- Vorgan
+  [53806] = true, [53807] = true, [53808] = true, [53809] = true, -- Sethrax
+  [53810] = true, [53811] = true, [53812] = true, [53813] = true, -- Zharok
+  [53814] = true, [53815] = true, [53816] = true, [53817] = true, -- Nyxar
+  [53818] = true, [53819] = true, [53820] = true, [53821] = true, -- Kryon
+  [53822] = true, [53823] = true, [53824] = true, [53825] = true, -- Morgrath
+  [53826] = true, [53827] = true, [53828] = true, [53829] = true, -- Aelzor
+  [53830] = true, [53831] = true, [53832] = true, [53833] = true, -- Ignarok
+} 
+
+local scanRadius = 6
+local crystalVisible = false
+local forceResumeAt = 0
+
+macro(500, "Crystals", function()
+  local center = pos()
+  if not center then return end
+
+  local foundCrystal = false
+
+  for x = -scanRadius, scanRadius do
+    for y = -scanRadius, scanRadius do
+      local tile = g_map.getTile({
+        x = center.x + x,
+        y = center.y + y,
+        z = center.z
+      })
+
+      if tile then
+        for _, thing in ipairs(tile:getThings()) do
+          if crystalIds[thing:getId()] then
+            use(thing)
+            foundCrystal = true
+          end
+        end
+      end
+    end
+  end
+
+  if foundCrystal and CaveBot.isOn() then
+    CaveBot.setOn(false)
+    crystalVisible = true
+    forceResumeAt = now + 10000
+    print("[Crystals] Crystal detected -> CaveBot paused")
+  end
+
+  if not foundCrystal and crystalVisible then
+    CaveBot.setOn(true)
+    crystalVisible = false
+    forceResumeAt = 0
+    print("[Crystals] Crystal disappeared -> CaveBot resumed")
+  end
+
+  if forceResumeAt > 0 and now >= forceResumeAt then
+    CaveBot.setOn(true)
+    crystalVisible = false
+    forceResumeAt = 0
+    print("[Crystals] Timeout -> CaveBot force-resumed")
+  end
+end)
+
+
+
+
+
+
+UI.Separator()
+
+
+
+
 
 macro(500, "Pesca", function()
   local foundItem = false
