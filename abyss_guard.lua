@@ -13,7 +13,6 @@ print("[Luquebot] Classe: Void carregada v" .. version)
 macro(200, "Combo + 2500", function()
   if g_game.isAttacking() then
     say("Singularity")
-    say("Void Guardian")
     say("Abyssal Tear")
     say("Nether Gaze")
     say("Rifts of Beyond")
