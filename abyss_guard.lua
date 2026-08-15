@@ -10,6 +10,18 @@ local version = "1.0"
 print("[Luquebot] Classe: Void carregada v" .. version)
 
 -- Combo Void Sequence
+
+macro(200, "Comb", function()
+  if g_game.isAttacking() then  
+    say("Singularity")
+    say("Abyssal Tear")
+    say("Nether Gaze")
+    say("Rifts of Beyond")
+    say("Void Surge")  
+  end
+end)
+
+
 macro(200, "Combo + 2500", function()
   if g_game.isAttacking() then
     say("Void Guardian")  
