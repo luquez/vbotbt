@@ -17,7 +17,7 @@ local URL_CORE = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/mai
 local URL_TOOLS = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/tools.lua"
 
 
-local URL_ABYSSAL_GUARD = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/abyss_guard.lua"
+local URL_ABYSSAL_GUARD =  "https://raw.githubusercontent.com/luquez/vbotbt/main/abyss_guard.lua"
 local URL_BLADEDANCER = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Bladedancer.lua"
 local URL_SENTINEL = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/Sentinel.lua"
 local URL_NIGHT = "https://raw.githubusercontent.com/luquez/vbotbt/refs/heads/main/nightshade.lua"
