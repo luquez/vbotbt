@@ -11,6 +11,19 @@ print("[Luquebot] Classe: Void carregada v" .. version)
 
 -- Combo Void Sequence
 
+acro(200, "Comb - Hunter", function()
+  if g_game.isAttacking() then  
+    say("Void Intruder")
+    say("Void Rupture")
+    say("Black Hole")
+    say("Abyssal Tear")
+    say("Nether Gaze")
+    say("Rifts of Beyond")
+    say("Void Surge")  
+  end
+end)
+
+
 macro(200, "Comb", function()
   if g_game.isAttacking() then  
     say("Singularity")
