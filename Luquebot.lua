@@ -258,44 +258,78 @@ end)
 UI.Separator()
 
 
-
-
+local fishingItemId = 38106
+local fishingRadius = 6
+local fishingVisible = false
+local fishingTimeout = 0
+local caveBotPausedByFishing = false
 
 macro(500, "Pesca", function()
   local foundItem = false
+  local targetThing = nil
 
-  for x = -radius1, radius1 do
-    for y = -radius1, radius1 do
-      local tile = g_map.getTile({x = posx() + x, y = posy() + y, z = posz()})
+  for x = -fishingRadius, fishingRadius do
+    for y = -fishingRadius, fishingRadius do
+      local tile = g_map.getTile({
+        x = posx() + x,
+        y = posy() + y,
+        z = posz()
+      })
+
       if tile then
         for _, thing in ipairs(tile:getThings()) do
-          if isTargetId(thing:getId(), itemIds1) then
-            use(thing)
+          if thing:getId() == fishingItemId then
             foundItem = true
+            targetThing = thing
+            break
           end
         end
       end
+
+      if targetThing then break end
+    end
+
+    if targetThing then break end
+  end
+
+  if targetThing then
+    use(targetThing)
+
+    if not fishingVisible then
+      fishingVisible = true
+      fishingTimeout = now + 10000
+
+      if CaveBot.isOn() then
+        CaveBot.setOn(false)
+        caveBotPausedByFishing = true
+      end
+
+      print("[Pesca] Item 38106 detectado")
     end
   end
 
-  if foundItem and CaveBot.isOn() then
-    CaveBot.setOn(false)
-    itemVisible1 = true
-    forceTime1 = now + 10000
-    print("[Node Collector Multi-ID] Node detectado → CaveBot pausado")
+  if not foundItem and fishingVisible then
+    fishingVisible = false
+    fishingTimeout = 0
+
+    if caveBotPausedByFishing then
+      CaveBot.setOn(true)
+      caveBotPausedByFishing = false
+    end
+
+    print("[Pesca] Item sumiu")
   end
 
-  if not foundItem and itemVisible1 then
-    CaveBot.setOn(true)
-    itemVisible1 = false
-    print("[Node Collector Multi-ID] Node sumiu → CaveBot reativado")
-  end
+  if fishingTimeout > 0 and now >= fishingTimeout then
+    fishingVisible = false
+    fishingTimeout = 0
 
-  if forceTime1 > 0 and now >= forceTime1 then
-    CaveBot.setOn(true)
-    itemVisible1 = false
-    forceTime1 = 0
-    print("[Node Collector Multi-ID] Timeout → CaveBot ON forçado")
+    if caveBotPausedByFishing then
+      CaveBot.setOn(true)
+      caveBotPausedByFishing = false
+    end
+
+    print("[Pesca] Timeout")
   end
 end)
 
