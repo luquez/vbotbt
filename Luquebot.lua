@@ -259,7 +259,7 @@ UI.Separator()
 
 
 local fishingItemId = 38106
-local fishingRadius = 6
+local fishingRadius = 9
 local fishingVisible = false
 local fishingTimeout = 0
 local caveBotPausedByFishing = false
