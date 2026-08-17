@@ -68,6 +68,13 @@ addSeparator()
 Panels.HealthItem()
 UI.Separator()
 
+
+lblInfo = UI.Label("Mana Potion")
+lblInfo:setColor("blue")
+addSeparator()
+Panels.ManaItem()
+UI.Separator()
+
 local potLow = 7643       -- ultimate mana
 local potMid = 24937      -- dracula
 
