@@ -90,7 +90,7 @@ macro(10000, "FOOD", function()
 
   for _, container in pairs(g_game.getContainers()) do
     for _, item in ipairs(container:getItems()) do
-      if item:getId() == 8019 then
+      if item:getId() == 30607 then
         return modules._G.g_blacktalon.use(item)
       end
     end
@@ -105,3 +105,19 @@ macro(200, "Auto Haste", function()
 
   say("Haste")                     -- lança a spell
 end)
+
+
+
+UI.Separator()
+-- upda / down
+lblInfo= UI.Label("Para up / Down")
+lblInfo= UI.Label("Space")
+lblInfo:setColor("green")
+UI.Separator()
+onKeyPress(function(keys)
+  if keys == "Space" then
+    say('levitate "up') 
+    say('levitate "down') 
+  end
+end)
+UI.Separator()
